@@ -20,9 +20,6 @@
           </li>
         </ul>
         <div class="collapse navbar-collapse justify-content-end">
-          <h1 class="m-4">
-            <a href="https://github.com/PNA-Tech/altruity/" target="_blank" rel="noreferrer"><i class="bi bi-github fa-6x text-white m-3" style="font-size:40px;"></i></a>
-          </h1>
         </div>
       </div>
     </div>
