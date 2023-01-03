@@ -1,3 +1,38 @@
-# Altruity
+# create-svelte
 
-Altruity is a social media platform that connects charitable organizations with potential donors and volunteers. With a user-friendly interface and powerful tools, Altruity makes it easy for charities to share their missions, fundraise, and connect with their communities. Whether you're a charity looking to spread the word about your cause or a philanthropist searching for ways to make a difference, Altruity has something for you. With features like customizable profiles, event listings, and easy-to-use donation buttons, Altruity streamlines the process of connecting charities with the resources they need to make an impact. Join the Altruity community today and start making a difference!
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+
+## Creating a project
+
+If you're seeing this, you've probably already done this step. Congrats!
+
+```bash
+# create a new project in the current directory
+npm create svelte@latest
+
+# create a new project in my-app
+npm create svelte@latest my-app
+```
+
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
