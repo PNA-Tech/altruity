@@ -5,44 +5,97 @@
     <br>
     <label for="ename">Event Name:</label><br>
     <input type="text" id="ename" name="ename" placeholder="Type in the event name"><br>
+
     <label for="date">Date:</label><br>
     <input type="date" id="date" name="date"><br>
-    <label for="select">Volunteers needed?</label><br>
-    <select id="select" onchange="VolunteersNeeded()">
+
+    <label for="needvol">Volunteers needed?</label><br>
+    <select id="needvol" onchange="VolunteersNeeded()">
         <option value="none" selected disabled hidden>Choose here</option>
         <option value="yesvol">Yes</option>
         <option value="novol">No</option>
     </select><br>
 
-  </form>
-  
-  <script>
+    <div id="volnum" style="display:none;">
+        <label for="volsneeded">How many volunteers?</label><br>
+        <input type="number" id="volsneeded"><br>
+    </div>
+    <!-- End of volunteers needed and ask if cash needed -->
+    <label for="needmoney">Do you need money to host your altruity?</label><br>
+    <select id="needmoney" onchange="MoneyNeeded()">
+        <option value="none" selected disabled hidden>Choose here</option>
+        <option value="yesmoney">Yes</option>
+        <option value="nomoney">No</option>
+    </select><br>
+    <div id="moneynum" style="display:none;">
+        <label for="moneyneeded">How much money do you need?</label><br>
+        <input type="number" id="moneyneeded" placeholder="Insert in dollars"><br>
+    </div>
+
+    <label for="images">Add images to use in your post:</label><br>
+    <input type="file" id="images" name="images" multiple><br>
+
+    <label for="caption">Write a caption to go along with your post:</label><br>
+    <textarea id="caption" name="caption" placeholder="Will be displayed beneath your pictures, write things you might want to include such as location and anything else." wrap="hard" spellcheck="true" style="width: 13%; height: 6%;"></textarea><br>
+    
+    <label for="submit">Submit your post:</label><br>
+    <input type="submit" id="submit" name="submit" value="Submit">
+</form>
+
+<script>
     // This part is for the category dropdown
-        // Create an array of possible categorys
-        var categories = ["Education", "Humanitarianism", "Environment", "Religious", "School", "Health", "Animal", "Arts", "Sports", "Welfare" ];
-        
-        // Get the input field and datalist elements
-        var input = document.getElementById("category");
-        var datalist = document.getElementById("categoryList");
-        
-        // Listen for changes to the input field
-        input.addEventListener("input", function() {
+    // Create an array of possible categorys
+    var categories = ["Education", "Humanitarianism", "Environment", "Religious", "School", "Health", "Animal", "Arts", "Sports", "Welfare"];
+
+    // Get the input field and datalist elements
+    var input = document.getElementById("category");
+    var datalist = document.getElementById("categoryList");
+
+    // Listen for changes to the input field
+    input.addEventListener("input", function () {
         // Get the search term
         var term = input.value;
-        
+
         // Clear the existing options
         datalist.innerHTML = "";
-        
+
         // Add the new options
         categories.forEach(category => {
             if (category.startsWith(term)) {
-            var option = document.createElement("option");
-            option.value = category;
-            datalist.appendChild(option);
+                var option = document.createElement("option");
+                option.value = category;
+                datalist.appendChild(option);
             }
         });
-        });
-    
+    });
+    // Function of Volunteers Needed
+    function VolunteersNeeded() {
+        // Get the selected option
+        var select = document.getElementById("needvol");
+        var selectedOption = select.options[select.selectedIndex].value;
 
-  </script>
-  
+        // Show or hide the additional question based on the selected option
+        var volnum = document.getElementById("volnum");
+        if (selectedOption == "yesvol") {
+            volnum.style.display = "block";
+        } else {
+            volnum.style.display = "none";
+        }
+    }
+    // Function of Money Needed
+    function MoneyNeeded() {
+        // Get the selected option
+        var select = document.getElementById("needmoney");
+        var selectedOption = select.options[select.selectedIndex].value;
+
+        // Show or hide the additional question based on the selected option
+        var moneynum = document.getElementById("moneynum");
+        if (selectedOption == "yesmoney") {
+            moneynum.style.display = "block";
+        } else {
+            moneynum.style.display = "none";
+        }
+    }
+
+
+</script>
