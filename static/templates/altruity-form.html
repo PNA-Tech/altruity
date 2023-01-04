@@ -1,0 +1,33 @@
+<form>
+    <label for="answer">What category?</label><br>
+    <input type="text" id="answer" list="answerList">
+    <datalist id="answerList"></datalist>
+  </form>
+  
+  <script>
+    // Create an array of possible answers
+    var answers = ["Education", "Humanitarianism", "Environment", "Religious", "School", "Health", "Animal", "Arts", "Sports", "Welfare" ];
+    
+    // Get the input field and datalist elements
+    var input = document.getElementById("answer");
+    var datalist = document.getElementById("answerList");
+    
+    // Listen for changes to the input field
+    input.addEventListener("input", function() {
+      // Get the search term
+      var term = input.value;
+      
+      // Clear the existing options
+      datalist.innerHTML = "";
+      
+      // Add the new options
+      answers.forEach(answer => {
+        if (answer.startsWith(term)) {
+          var option = document.createElement("option");
+          option.value = answer;
+          datalist.appendChild(option);
+        }
+      });
+    });
+  </script>
+  

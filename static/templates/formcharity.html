@@ -1,0 +1,46 @@
+<!-- this document basically contains the user template for a post -->
+<!-- basically when a user clicks on new post they'll see this as the pop up -->
+<!-- btw this is for charity account(for now) -->
+<!-- the form is a post form -->
+<form>
+    <label for="select">Select your post type:</label><br>
+    <select id="select" onchange="optionChanged()">
+        <option value="none" selected disabled hidden>Choose here</option>
+        <option value="altruity">Altruity</option>
+        <!-- A fundraiser basically -->
+        <option value="relatruity">Relatruity</option>
+        <!-- Basically a normal post -->
+        <option value="request">Request</option>
+        <!-- request for money or something else -->
+    </select><br>
+    <div id="formFields">
+        <!-- Form fields will go here -->
+    </div>
+</form>
+
+<script>
+    function optionChanged() {
+        // Get the selected option
+        var select = document.getElementById("select");
+        var selectedOption = select.options[select.selectedIndex].value;
+
+        // Clear the existing form fields
+        var formFields = document.getElementById("formFields");
+        formFields.innerHTML = "";
+
+        // Add the appropriate form fields based on the selected option
+        if (selectedOption == "altruity") {
+            fetch("altruity-form.html")
+                .then(response => response.text())
+                .then(html => formFields.innerHTML = html);
+        } else if (selectedOption == "relatruity") {
+            fetch("relatruity-form.html")
+                .then(response => response.text())
+                .then(html => formFields.innerHTML = html);
+        } else if (selectedOption == "request") {
+            fetch("request-form.html")
+                .then(response => response.text())
+                .then(html => formFields.innerHTML = html);
+        }
+    }
+</script>
