@@ -1,33 +1,48 @@
 <form>
-    <label for="answer">What category?</label><br>
-    <input type="text" id="answer" list="answerList">
-    <datalist id="answerList"></datalist>
+    <label for="category">What category?</label><br>
+    <input type="text" id="category" list="categoryList" placeholder="What cause is this altruity based on?">
+    <datalist id="categoryList"></datalist>
+    <br>
+    <label for="ename">Event Name:</label><br>
+    <input type="text" id="ename" name="ename" placeholder="Type in the event name"><br>
+    <label for="date">Date:</label><br>
+    <input type="date" id="date" name="date"><br>
+    <label for="select">Volunteers needed?</label><br>
+    <select id="select" onchange="VolunteersNeeded()">
+        <option value="none" selected disabled hidden>Choose here</option>
+        <option value="yesvol">Yes</option>
+        <option value="novol">No</option>
+    </select><br>
+
   </form>
   
   <script>
-    // Create an array of possible answers
-    var answers = ["Education", "Humanitarianism", "Environment", "Religious", "School", "Health", "Animal", "Arts", "Sports", "Welfare" ];
+    // This part is for the category dropdown
+        // Create an array of possible categorys
+        var categories = ["Education", "Humanitarianism", "Environment", "Religious", "School", "Health", "Animal", "Arts", "Sports", "Welfare" ];
+        
+        // Get the input field and datalist elements
+        var input = document.getElementById("category");
+        var datalist = document.getElementById("categoryList");
+        
+        // Listen for changes to the input field
+        input.addEventListener("input", function() {
+        // Get the search term
+        var term = input.value;
+        
+        // Clear the existing options
+        datalist.innerHTML = "";
+        
+        // Add the new options
+        categories.forEach(category => {
+            if (category.startsWith(term)) {
+            var option = document.createElement("option");
+            option.value = category;
+            datalist.appendChild(option);
+            }
+        });
+        });
     
-    // Get the input field and datalist elements
-    var input = document.getElementById("answer");
-    var datalist = document.getElementById("answerList");
-    
-    // Listen for changes to the input field
-    input.addEventListener("input", function() {
-      // Get the search term
-      var term = input.value;
-      
-      // Clear the existing options
-      datalist.innerHTML = "";
-      
-      // Add the new options
-      answers.forEach(answer => {
-        if (answer.startsWith(term)) {
-          var option = document.createElement("option");
-          option.value = answer;
-          datalist.appendChild(option);
-        }
-      });
-    });
+
   </script>
   
