@@ -10,7 +10,7 @@
     <label for="date">Date:</label><br>
     <input type="date" id="date" name="date"><br>
 
-    <label for="needvol">Volunteers needed?</label><br>
+    <!-- <label for="needvol">Volunteers needed?</label><br>
     <select id="needvol" onchange="VolunteersNeeded()">
         <option value="none" selected disabled hidden>Choose here</option>
         <option value="yesvol">Yes</option>
@@ -19,10 +19,10 @@
 
     <div id="volnum" style="display:none;">
         <label for="volsneeded">How many volunteers?</label><br>
-        <input type="number" id="volsneeded"><br>
-    </div>
-    <!-- End of volunteers needed and ask if cash needed -->
-    <label for="needmoney">Do you need money to host your altruity?</label><br>
+        <input type="number" id="volsneeded"><br> -->
+    <!-- </div>
+    <!- End of volunteers needed and ask if cash needed -->
+    <!-- <label for="needmoney">Do you need money to host your altruity?</label><br>
     <select id="needmoney" onchange="MoneyNeeded()">
         <option value="none" selected disabled hidden>Choose here</option>
         <option value="yesmoney">Yes</option>
@@ -31,13 +31,13 @@
     <div id="moneynum" style="display:none;">
         <label for="moneyneeded">How much money do you need?</label><br>
         <input type="number" id="moneyneeded" placeholder="Insert in dollars"><br>
-    </div>
+    </div> --> 
 
     <label for="images">Add images to use in your post:</label><br>
     <input type="file" id="images" name="images" multiple><br>
 
     <label for="caption">Write a caption to go along with your post:</label><br>
-    <textarea id="caption" name="caption" placeholder="Will be displayed beneath your pictures, write things you might want to include such as location and anything else." wrap="hard" spellcheck="true" style="width: 26% !important; height: 16% !important;"></textarea><br>
+    <textarea id="caption" name="caption" placeholder="Will be displayed beneath your pictures, write things you might want to include such as donations and volunteers you might require and anything else." wrap="hard" spellcheck="true" style="width: 26% !important; height: 16% !important;"></textarea><br>
     
     <label for="submit">Submit your post:</label><br>
     <input type="submit" id="submit" name="submit" value="Submit">
@@ -70,33 +70,33 @@
         });
     });
     // Function of Volunteers Needed
-    function VolunteersNeeded() {
-        // Get the selected option
-        var select = document.getElementById("needvol");
-        var selectedOption = select.options[select.selectedIndex].value;
+    // function VolunteersNeeded() {
+    //     // Get the selected option
+    //     var select = document.getElementById("needvol");
+    //     var selectedOption = select.options[select.selectedIndex].value;
 
-        // Show or hide the additional question based on the selected option
-        var volnum = document.getElementById("volnum");
-        if (selectedOption == "yesvol") {
-            volnum.style.display = "block";
-        } else {
-            volnum.style.display = "none";
-        }
-    }
-    // Function of Money Needed
-    function MoneyNeeded() {
-        // Get the selected option
-        var select = document.getElementById("needmoney");
-        var selectedOption = select.options[select.selectedIndex].value;
+    //     // Show or hide the additional question based on the selected option
+    //     var volnum = document.getElementById("volnum");
+    //     if (selectedOption == "yesvol") {
+    //         volnum.style.display = "block";
+    //     } else {
+    //         volnum.style.display = "none";
+    //     }
+    // }
+    // // Function of Money Needed
+    // function MoneyNeeded() {
+    //     // Get the selected option
+    //     var select = document.getElementById("needmoney");
+    //     var selectedOption = select.options[select.selectedIndex].value;
 
-        // Show or hide the additional question based on the selected option
-        var moneynum = document.getElementById("moneynum");
-        if (selectedOption == "yesmoney") {
-            moneynum.style.display = "block";
-        } else {
-            moneynum.style.display = "none";
-        }
-    }
+    //     // Show or hide the additional question based on the selected option
+    //     var moneynum = document.getElementById("moneynum");
+    //     if (selectedOption == "yesmoney") {
+    //         moneynum.style.display = "block";
+    //     } else {
+    //         moneynum.style.display = "none";
+    //     }
+    // }
 
 
 </script>
