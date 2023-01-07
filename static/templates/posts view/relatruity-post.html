@@ -34,7 +34,7 @@
         <div id="commentDiv"></div>
 
         <button onclick="shareFunction()">Share</button>
-        <p id="likeCount">0</p>
+        <p id="likeCount">0 Likes</p>
         <p class="card-text" style="padding:20px">We did it @Bank of America!</p>
     </div>
 
@@ -43,9 +43,9 @@
             var likeCount = document.getElementById("likeCount");
             var currentCount = parseInt(likeCount.innerHTML);
             if (currentCount % 2 === 0) {
-                likeCount.innerHTML = currentCount + 1;
+                likeCount.innerHTML = currentCount + 1 + " Likes";
             } else {
-                likeCount.innerHTML = currentCount - 1;
+                likeCount.innerHTML = currentCount - 1  + " Likes";
             }
         }
 
