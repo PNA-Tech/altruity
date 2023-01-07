@@ -22,12 +22,17 @@
         <img src="https://th.bing.com/th/id/OIP.YEM3pZYGjcPuMxqFU11sdAHaE8?pid=ImgDet&rs=1" class="card-img-bottom"
             alt="Test Image">
         <button onclick="likeFunction()">Like</button>
-        <form onsubmit="return commentFunction()">
+        <!-- Comment Button -->
+        <button onclick="toggleCommentForm()">Comment</button>
+        <!-- Comment Form -->
+        <form id="commentForm" style="display:none;" onsubmit="return submitComment()">
             <textarea id="commentInput" rows="4" cols="50"></textarea>
             <br>
             <input type="submit" value="Comment">
         </form>
+        <!-- Comment Div -->
         <div id="commentDiv"></div>
+
         <button onclick="shareFunction()">Share</button>
         <p id="likeCount">0</p>
         <p class="card-text" style="padding:20px">We did it @Bank of America!</p>
@@ -44,11 +49,25 @@
             }
         }
 
-        function commentFunction() {
+        var commentCount = 0;
+
+        function toggleCommentForm() {
+            var commentForm = document.getElementById("commentForm");
+            if (commentForm.style.display === "none") {
+                commentForm.style.display = "block";
+            } else {
+                commentForm.style.display = "none";
+            }
+        }
+
+        function submitComment() {
             var commentInput = document.getElementById("commentInput");
             var comment = commentInput.value;
             var commentDiv = document.getElementById("commentDiv");
-            commentDiv.innerHTML = comment;
+            commentDiv.innerHTML += "<p>" + comment + "</p>";
+            commentInput.value = "";
+            toggleCommentForm();
+            commentCount++;
             return false;
         }
     </script>
