@@ -21,9 +21,9 @@
         </div>
         <img src="https://th.bing.com/th/id/OIP.YEM3pZYGjcPuMxqFU11sdAHaE8?pid=ImgDet&rs=1" class="card-img-bottom"
             alt="Test Image">
-        <button onclick="likeFunction()">Like</button>
+        <button class="inline-button" onclick="likeFunction()">Like</button>
         <!-- Comment Button -->
-        <button onclick="toggleCommentForm()">Comment</button>
+        <button class="inline-button" onclick="toggleCommentForm()">Comment</button>
         <!-- Comment Form -->
         <form id="commentForm" style="display:none;" onsubmit="return submitComment()">
             <textarea id="commentInput" rows="4" cols="50"></textarea>
@@ -33,7 +33,7 @@
         <!-- Comment Div -->
         <div id="commentDiv"></div>
 
-        <button onclick="shareFunction()">Share</button>
+        <button class="inline-button" onclick="shareFunction()">Share</button>
         <p id="likeCount">0 Likes</p>
         <p class="card-text" style="padding:20px">We did it @Bank of America!</p>
     </div>
@@ -45,7 +45,7 @@
             if (currentCount % 2 === 0) {
                 likeCount.innerHTML = currentCount + 1 + " Likes";
             } else {
-                likeCount.innerHTML = currentCount - 1  + " Likes";
+                likeCount.innerHTML = currentCount - 1 + " Likes";
             }
         }
 
@@ -76,5 +76,10 @@
     .card {
         width: 50%;
         margin: auto;
+    }
+
+    .card .inline-button {
+        display: inline-block;
+        padding: 0 10px;
     }
 </style>
