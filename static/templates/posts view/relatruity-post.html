@@ -15,13 +15,43 @@
     <div class="card">
         <div class="card-body">
             <!-- Username and profile pic -->
-          <h4 class="card-title">We robbed a bank for our non-profit!</h4>
-          <p class="card-text"><small class="text-muted">@4:30</small></p>
-          <!-- likes and all that stuff im too lazy to do -->
+            <h4 class="card-title">We robbed a bank for our non-profit!</h4>
+            <p class="card-text"><small class="text-muted">@4:30</small></p>
+            <!-- likes and all that stuff im too lazy to do -->
         </div>
-        <img src="https://th.bing.com/th/id/OIP.YEM3pZYGjcPuMxqFU11sdAHaE8?pid=ImgDet&rs=1" class="card-img-bottom" alt="Test Image">
-        <p class="card-text">We did it @Bank of America!</p>
+        <img src="https://th.bing.com/th/id/OIP.YEM3pZYGjcPuMxqFU11sdAHaE8?pid=ImgDet&rs=1" class="card-img-bottom"
+            alt="Test Image">
+        <button onclick="likeFunction()">Like</button>
+        <form onsubmit="return commentFunction()">
+            <textarea id="commentInput" rows="4" cols="50"></textarea>
+            <br>
+            <input type="submit" value="Comment">
+        </form>
+        <div id="commentDiv"></div>
+        <button onclick="shareFunction()">Share</button>
+        <p id="likeCount">0</p>
+        <p class="card-text" style="padding:20px">We did it @Bank of America!</p>
     </div>
+
+    <script>
+        function likeFunction() {
+            var likeCount = document.getElementById("likeCount");
+            var currentCount = parseInt(likeCount.innerHTML);
+            if (currentCount % 2 === 0) {
+                likeCount.innerHTML = currentCount + 1;
+            } else {
+                likeCount.innerHTML = currentCount - 1;
+            }
+        }
+
+        function commentFunction() {
+            var commentInput = document.getElementById("commentInput");
+            var comment = commentInput.value;
+            var commentDiv = document.getElementById("commentDiv");
+            commentDiv.innerHTML = comment;
+            return false;
+        }
+    </script>
 </body>
 <style>
     .card {
