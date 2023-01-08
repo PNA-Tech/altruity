@@ -20,16 +20,7 @@
   let loading = false;
   async function post() {
     loading = true;
-    // Nishant look here below
-    // Prompt user to follow
-    if ($user!.following.length == 0) {
-      if (!confirm("You are not following anyone. Would you like to follow some people?")) {
-        loading = false;
-        return;
-      }
-      goto("/");
-      return;
-    }
+
     // Make post
     let postData = new FormData();
     postData.append("title", title);

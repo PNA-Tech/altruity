@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>Altruity | Home</title>
+  <title>Altruity - Home</title>
 </svelte:head>
 
 Feed
