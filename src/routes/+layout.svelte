@@ -60,7 +60,7 @@
             {$user?.username}
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="/">My Profile</a></li>
+            <li><a class="dropdown-item" href={`/user/${$user?.id}`}>My Profile</a></li>
             <li><a class="dropdown-item" href="/new">New Post</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><button class="dropdown-item" on:click={logout}>Logout</button></li>
