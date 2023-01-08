@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
   import { page } from "$app/stores";
   import Login from "$lib/components/Login.svelte";
   import { pb, user } from "$lib/pb";

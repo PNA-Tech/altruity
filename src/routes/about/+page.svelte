@@ -1,3 +1,7 @@
+<svelte:head>
+  <title>Altruity - About</title>
+</svelte:head>
+
 <h1>Why Altruity?</h1>
 <p>
     Altruity is a revolutionary social media platform connecting philanthropists
