@@ -1,4 +1,4 @@
-<h1>What is Altruity</h1>
+<h1>Why Altruity?</h1>
 <p>
     Altruity is a revolutionary social media platform connecting philanthropists
     and charities, making it easy to discover and support causes that matter to
@@ -98,3 +98,5 @@
         </div>
     </div>
 </div>
+
+<br>
