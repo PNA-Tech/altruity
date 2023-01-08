@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { goto } from "$app/navigation";
-    import { pb, user } from "$lib/pb";
+  import { goto } from "$app/navigation";
+  import { pb, user } from "$lib/pb";
 
 
   let title = "";
@@ -75,7 +75,7 @@
       {/each}
     </div>
   {/if}
-  <button type="submit" class="btn btn-primary btn-lg w-100" disabled={loading} on:click={post}>Post</button>
+  <button type="submit" class="btn btn-primary btn-lg w-100" disabled={loading} on:click|preventDefault={post}>Post</button>
 </form>
 
 <style>
