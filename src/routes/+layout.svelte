@@ -2,7 +2,7 @@
   import { page } from "$app/stores";
   import Login from "$lib/components/Login.svelte";
   import { pb, user } from "$lib/pb";
-    import { Record } from "pocketbase";
+    import type { Record } from "pocketbase";
   import { onMount } from "svelte";
 
   let login = false;
