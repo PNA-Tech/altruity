@@ -2,6 +2,7 @@
   import { page } from "$app/stores";
   import Login from "$lib/components/Login.svelte";
   import { pb, user } from "$lib/pb";
+    import { Record } from "pocketbase";
   import { onMount } from "svelte";
 
   let login = false;
@@ -50,6 +51,7 @@
         {#if $user}
         <li class="nav-item dropdown">
           <button class="btn nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src={pb.getFileUrl($user, $user?.avatar)} alt={$user?.username} style="width: 30px; height: 30px; border-radius: 50%; margin-right: 5px;"/>
             {$user?.username}
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
