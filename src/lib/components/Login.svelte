@@ -10,7 +10,8 @@
   let kind = "user";
   let donate = "";
   let topic = "";
-  let charity = ""; // TODO: Make autocomplete on the input
+  let charity = "";
+  let company = ""; // TODO: Make autocomplete on the input
 
   let loading = false;
 
@@ -28,6 +29,9 @@
         data.append("donate", donate);
         data.append("topic", topic);
         data.append("charity", charity);
+      }
+      if (kind == "company") {
+        data.append("company", company);
       }
       
       await pb.collection("users").create(data);
@@ -95,6 +99,13 @@
       <input type="text" class="form-control" id="charityInput" placeholder="e.g. Good for the World" bind:value={charity}>
     </div>
     {/if}
+    {/if}
+
+    {#if kind == "company"}
+    <div class="mb-3">
+      <label for="companyInput" class="form-label">Company Name</label>
+      <input type="text" class="form-control" id="companyInput" placeholder="e.g. Altruity" bind:value={company}>
+    </div>
     {/if}
 
     <div class="w-100 vstack gap-2">
