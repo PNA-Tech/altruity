@@ -51,7 +51,7 @@
         {#if $user}
         <li class="nav-item dropdown">
           <button class="btn nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src={pb.getFileUrl((($user) as Record), $user?.avatar, { thumb: "30x30" })} alt={$user?.username} style="border-radius: 50%; margin-right: 5px;"/>
+            <img src={pb.getFileUrl((($user)), $user?.avatar)} alt={$user?.username} style="width: 30px; height: 30px; margin-right: 3px" class="rounded-circle mr-1"/>
             {$user?.username}
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
