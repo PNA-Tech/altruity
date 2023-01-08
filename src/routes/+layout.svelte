@@ -4,7 +4,10 @@
   
 <nav class="navbar navbar-expand-lg bg-body-secondary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">Altruity</a>
+    <a class="navbar-brand" href="#">
+      <img src="/favicon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      Altruity
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
