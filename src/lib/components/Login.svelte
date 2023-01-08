@@ -9,8 +9,7 @@
   let username = "";
   let kind = "user";
   let donate = "";
-  let topic = "";
-  let charity = ""; // TODO: Make autocomplete on the input
+  let topic = ""; // TODO: Make autocomplete on the input
 
   let loading = false;
 
@@ -27,7 +26,6 @@
       if (kind == "charity") {
         data.append("donate", donate);
         data.append("topic", topic);
-        data.append("charity", charity);
       }
       
       await pb.collection("users").create(data);
@@ -38,7 +36,7 @@
     loading = false;
   }
 </script>
-<br><br><br><br>
+
 <div class="h-100 d-flex align-items-center justify-content-center col-12">
   <form class="col-md-4 bg-body-secondary p-3 rounded">
     <ul class="nav nav-pills nav-fill mb-3">
@@ -88,11 +86,6 @@
     <div class="mb-3">
       <label for="topicInput" class="form-label">Topic</label>
       <input type="text" class="form-control" id="topicInput" placeholder="e.g. Crayons" bind:value={topic}>
-    </div>
-
-    <div class="mb-3">
-      <label for="charityInput" class="form-label">Charity Name</label>
-      <input type="text" class="form-control" id="charityInput" placeholder="e.g. Good for the World" bind:value={charity}>
     </div>
     {/if}
     {/if}
