@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>Altruity - About</title>
+  <title>About | Altruity</title>
 </svelte:head>
 
 <h1>Why Altruity?</h1>

@@ -54,7 +54,7 @@
 </script>
 
 <svelte:head>
-  <title>Altruity - New Post</title>
+  <title>Create Post | Altruity</title>
 </svelte:head>
 
 <h1>New Post</h1>
