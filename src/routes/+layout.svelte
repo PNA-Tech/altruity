@@ -6,13 +6,15 @@
 
   let login = false;
 
+  const loginPages = ["/", "/new"];
+
   onMount(() => {
-    if ($user == null && $page.url.pathname == "/") {
+    if ($user == null && loginPages.includes($page.url.pathname)) {
       login = true;
     }
   })
 
-  $: if ($page.url.pathname == "/" && $user == null) {
+  $: if (loginPages.includes($page.url.pathname) && $user == null) {
     login = true;
   }
   $: if ($user && login) {
