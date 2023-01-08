@@ -37,9 +37,9 @@
       {#if mounted}
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="btn nav-link dropdown-toggle btn-link" data-bs-toggle="dropdown" aria-expanded="false">
             {$user?.username}
-          </a>
+          </button>
           <ul class="dropdown-menu dropdown-menu-end">
             <li><a class="dropdown-item" href="/">My Profile</a></li>
             <li><hr class="dropdown-divider"></li>
