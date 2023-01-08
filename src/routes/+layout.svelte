@@ -4,7 +4,7 @@
   
 <nav class="navbar navbar-expand-lg bg-body-secondary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/">
       <img src="/favicon.png" width="30" height="30" class="d-inline-block align-top" alt="">
       Altruity
     </a>
