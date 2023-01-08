@@ -20,6 +20,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"copperjs": "^1.0.1"
+		"copperjs": "^1.0.1",
+		"pocketbase": "^0.9.1"
 	}
 }

@@ -1,7 +1,20 @@
 <script lang="ts">
   import { page } from "$app/stores";
+  import Login from "$lib/components/Login.svelte";
+  import { pb, user } from "$lib/pb";
+  import { onMount } from "svelte";
+
+  let mounted = false;
+  onMount(() => {
+    mounted = true;
+  })
+
+  function logout() {
+    pb.authStore.clear();
+  }
 </script>
-  
+
+{#if $user || !mounted}
 <nav class="navbar navbar-expand-lg bg-body-secondary">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">Altruity</a>
@@ -17,7 +30,21 @@
           <a class="nav-link" class:active={$page.url.pathname == "/find"} href="/find">Find Charities</a>
         </li>
       </ul>
-      <button class="btn btn-outline-secondary"><i class="bi bi-plus"></i> New Post</button>
+
+      {#if mounted}
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {$user?.username}
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="/">My Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><button class="dropdown-item" on:click={logout}>Logout</button></li>
+          </ul>
+        </li>
+      </ul>
+      {/if}
     </div>
   </div>
 </nav>
@@ -25,6 +52,9 @@
 <div class="container text-center mt-2">
   <slot></slot>
 </div>
+{:else}
+<Login></Login>
+{/if}
 
 <style>
   .nav-link {
