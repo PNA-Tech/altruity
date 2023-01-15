@@ -6,7 +6,6 @@
 
   export let post: Record;
   export let liker: Record | null = null; // For <user> likes this message
-    console.log(liker);
 
   // Get like count
   let likeCount = 0;
