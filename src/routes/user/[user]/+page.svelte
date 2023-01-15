@@ -21,7 +21,10 @@
   let unsubscribeFollowingCount: () => void;
   let following: string | null;
 
-  onMount(async () => {
+  async function load() {
+    unload();
+    loaded = false;
+
     user = await pb.collection("users").getOne($page.params.user);
 
     // Get posts
@@ -71,7 +74,15 @@
     }
 
     loaded = true;
+  }
+
+  page.subscribe((v) => {
+    if (loaded && v.params.user != user.id) {
+      load();
+    }
   })
+
+  onMount(load)
 
   let followLoading = false;
   async function follow() {
@@ -89,11 +100,13 @@
     followLoading = false;
   }
 
-  onDestroy(() => {
+  function unload() {
     if (unsubscribePosts) {unsubscribePosts()};
     if (unsubscribeFollowerCount) {unsubscribeFollowerCount()};
     if (unsubscribeFollowingCount) {unsubscribeFollowingCount()};
-  })
+  }
+
+  onDestroy(unload);
 </script>
 
 <svelte:head>
