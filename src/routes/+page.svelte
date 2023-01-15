@@ -54,7 +54,7 @@
   {:else if item.kind == "follow"}
   Follow {asRecord(item.expand.user) }
   {:else if item.kind == "like"}
-  <PostPreview post={asRecord(item.expand.post)} liker={item.author}></PostPreview>
+  <PostPreview post={asRecord(item.expand.post)} liker={asRecord(item.expand.author)}></PostPreview>
   {:else if item.kind == "donate"}
   Donate {asRecord(item.expand.user) }
   {/if}
