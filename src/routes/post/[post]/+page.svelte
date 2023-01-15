@@ -98,7 +98,7 @@
   <h1 class="display-1">{post.title}</h1>
   <p class="lead">{post.description}</p>
   {#if post.pictures}
-  <div class="hstack gap-2 scroll">
+  <div class="hstack gap-2 scroll mb-3">
     {#each post.pictures as pic}
       <img src={pb.getFileUrl(post, pic)} alt={post.title} class="image"/>
     {/each}
