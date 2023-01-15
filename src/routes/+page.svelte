@@ -13,7 +13,7 @@
     loaded = true;
     feed = (await pb.collection("feed").getList(1, 50, { 
       filter: `target="${$user!.id}"`, 
-      expand: "author,user,post",
+      expand: "author,user,post,post.author",
       sort: "-created"
     })).items;
 

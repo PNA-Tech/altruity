@@ -22,7 +22,7 @@
   });
 
   let author: Record;
-  $: author = (post.expand as Record).author;
+  $: author = post.expand.author as Record;
 </script>
 
 <div class="card mb-3">
@@ -32,9 +32,14 @@
   </div>
   {/if}
   <div class="card-body">
-    <a class="card-title h5 linktitle" href={"/post/" + post.id}>{post.title}</a>
+    <div class="text-start row justify-content-center">
+      <img src={pb.getFileUrl(author, author.avatar, { thumb: "50x50" })} class="avatar rounded-circle img-fluid col-2" alt={author.username}/>
+      <div class="col">
+        <a class="card-title h5 linktitle row" href={"/post/" + post.id}>{post.title}</a>
+        <p class="card-subtitle mb-2 text-muted row">Posted on {post.created}</p>
+      </div>
+    </div>
     <p class="card-text">{post.description}</p>
-    <p class="card-text"><small class="text-muted">Posted on {post.created}</small></p>
   </div>
   {#if post.pictures && post.pictures.length > 0}
   <img src={pb.getFileUrl(post, post.pictures[0])} class="card-img-bottom image" alt="Post highlight">
@@ -57,5 +62,10 @@
     width: auto;
     object-fit: cover;
     border-radius: 0;
+  }
+
+  .avatar {
+    width: auto;
+    height: 40%;
   }
 </style>
