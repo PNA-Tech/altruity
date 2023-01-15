@@ -66,6 +66,5 @@
 
   .avatar {
     width: auto;
-    height: 40%;
   }
 </style>
