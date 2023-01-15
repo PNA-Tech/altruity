@@ -106,16 +106,30 @@
 </div>
 
 <div class="row mb-3">
-  <div class="row col text-muted">
+  <div class="row col">
     <div class="col-6">Followers</div>
     <div class="col-6">Following</div>
-    <div class="col-6">{followerCount}</div>
-    <div class="col-6">{followingCount}</div>
+    <div class="col-6 text-muted">{followerCount}</div>
+    <div class="col-6 text-muted">{followingCount}</div>
   </div>
   {#if !$loggedUser || $loggedUser.id != user.id}
   <button class="col-3 btn btn-primary me-2" disabled={followLoading} on:click={follow}>{following ? "Unfollow" : "Follow"}</button>
   {/if}
 </div>
+
+{#if user.kind == "charity"}
+<div class="row mb-3">
+  <a class="col btn btn-primary ms-2 btn-lg" target="_blank" rel="noreferrer" href={user.donate}>
+    <div class="h-100 donatebtn">
+      <span class="d-flex">Donate</span>
+    </div>
+  </a>
+  <div class="row col">
+    <div class="col-12">Topic</div>
+    <div class="col-12 text-muted">{user.topic}</div>
+  </div>
+</div>
+{/if}
 
 <h1>Recent Activity</h1>
 {#each posts as post}
@@ -124,3 +138,11 @@
 {:else}
 <Loading/>
 {/if}
+
+<style>
+  .donatebtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
