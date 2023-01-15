@@ -44,7 +44,7 @@
           <a class="nav-link" class:active={$page.url.pathname == "/about"} href="/about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" class:active={$page.url.pathname == "/find"} href="/find">Find Charities</a>
+          <a class="nav-link" class:active={$page.url.pathname == "/find"} href="/find">Explore</a>
         </li>
       </ul>
 
