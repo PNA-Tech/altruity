@@ -54,6 +54,11 @@
 </svelte:head>
 
 {#if loaded}
+
+{#if feed.length == 0}
+  <p class="lead">You haven't followed anyone! <a href="/explore">Explore</a> to find people for your feed!</p>
+{/if}
+
 {#each feed as item}
   {#if item.kind == "post"}
   <PostPreview post={asRecord(item.expand.post)}></PostPreview>
