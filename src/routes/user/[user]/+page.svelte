@@ -120,13 +120,25 @@
   </div>
   {#if !$loggedUser || $loggedUser.id != user.id}
   <button class="col-3 btn btn-primary me-2" disabled={followLoading} on:click={follow}>{following ? "Unfollow" : "Follow"}</button>
+  {:else if $loggedUser && $loggedUser.id == user.id}
+  <a class="col-3 btn btn-outline-primary me-2" href="/settings">
+    <div class="h-100 lgbtn">
+      <span class="d-flex"><i class="bi bi-pencil-square me-2"></i>Donate</span>
+    </div>
+  </a>
   {/if}
 </div>
+
+{#if user.about && user.about.length > 0}
+<p class="lead mb-3">
+  {user.about}
+</p>
+{/if}
 
 {#if user.kind == "charity"}
 <div class="row mb-3">
   <a class="col btn btn-primary ms-2 btn-lg" target="_blank" rel="noreferrer" href={user.donate}>
-    <div class="h-100 donatebtn">
+    <div class="h-100 lgbtn">
       <span class="d-flex">Donate</span>
     </div>
   </a>
@@ -150,7 +162,7 @@
     max-width: 100px;
   }
 
-  .donatebtn {
+  .lgbtn {
     display: flex;
     align-items: center;
     justify-content: center;

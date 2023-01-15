@@ -37,6 +37,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>Login | Altruity</title>
+</svelte:head>
+
 <div class="h-100 d-flex align-items-center justify-content-center col-12">
   <form class="col-md-4 bg-body-secondary p-3 rounded">
     <ul class="nav nav-pills nav-fill mb-3">

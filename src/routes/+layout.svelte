@@ -8,7 +8,7 @@
 
   let login = false;
 
-  const loginPages = ["/", "/new"];
+  const loginPages = ["/", "/new", "/settings"];
 
   onMount(() => {
     if ($user == null && loginPages.includes($page.url.pathname)) {
