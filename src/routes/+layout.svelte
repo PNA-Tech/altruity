@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores";
   import Login from "$lib/components/Login.svelte";
+    import ThemePicker from "$lib/components/ThemePicker.svelte";
   import { asRecord, pb, user } from "$lib/pb";
   import type { Record } from "pocketbase";
   import { onMount } from "svelte";
@@ -64,6 +65,7 @@
         {:else}
         <button class="btn nav-link" on:click={() => login = true}>Login</button>
         {/if}
+        <ThemePicker />
       </ul>
     </div>
   </div>
