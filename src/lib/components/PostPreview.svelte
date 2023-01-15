@@ -34,7 +34,7 @@
   {/if}
   <div class="card-body">
     <div class="text-start row justify-content-center">
-      <img src={pb.getFileUrl(author, author.avatar, { thumb: "50x50" })} class="avatar rounded-circle img-fluid col-2" alt={author.username}/>
+      <img src={pb.getFileUrl(author, author.avatar, { thumb: "128x128" })} class="avatar rounded-circle img-fluid col-2" alt={author.username}/>
       <div class="col">
         <a class="card-title h5 linktitle row" href={"/post/" + post.id}>{post.title}</a>
         <p class="card-subtitle mb-2 text-muted row">Posted {formatTime(post.created)}</p>
