@@ -42,7 +42,10 @@
 </script>
 
 <li class="nav-item dropdown">
-  <span class="nav-link dropdown-toggle cursor" data-bs-toggle="dropdown"><i class={"bi bi-" + themeIcons[theme]}></i></span>
+  <span class="nav-link dropdown-toggle cursor" data-bs-toggle="dropdown">
+    <i class={"bi bi-" + themeIcons[theme]}></i>
+    <span class="d-lg-none">Theme</span>
+  </span>
   <ul class="dropdown-menu dropdown-menu-end">
     {#each themes as t}
       <button class="dropdown-item cursor" on:click={() => {switchTheme(t)}}>
