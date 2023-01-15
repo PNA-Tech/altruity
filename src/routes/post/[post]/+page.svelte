@@ -123,7 +123,7 @@
   <div class="col mb-3">
     {#each comments as comment}
       <div class="row mb-3 align-items-center">
-        <img src={pb.getFileUrl(author, asRecord(comment.expand.author).avatar, { thumb: "128x128" })} alt={author.username} class="rounded-circle comment-avatar col-2 img-fluid"/>
+        <img src={pb.getFileUrl(asRecord(comment.expand.author), asRecord(comment.expand.author).avatar, { thumb: "128x128" })} alt={asRecord(comment.expand.author).username} class="rounded-circle comment-avatar col-2 img-fluid"/>
         <div class="col">
           <a class="row h5 usertext mb-0" href={"/user/" + asRecord(comment.expand.author).id}>{asRecord(comment.expand.author).username}</a>
           <span class="row">{comment.comment}</span>
