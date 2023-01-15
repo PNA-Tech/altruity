@@ -89,7 +89,7 @@
 {#if loaded}
 <div class="text-start">
   <div class="row mb-3 align-items-center">
-    <img src={pb.getFileUrl(author, author.avatar, { thumb: "50x50" })} alt={author.username} class="rounded-circle avatar col-2 img-fluid"/>
+    <img src={pb.getFileUrl(author, author.avatar, { thumb: "128x128" })} alt={author.username} class="rounded-circle avatar col-2 img-fluid"/>
     <div class="col">
       <a href={"/user/" + author.id} class="row h2 usertext">{author.username}</a>
       <span class="text-muted row">Posted on {post.created}</span>

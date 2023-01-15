@@ -4,6 +4,7 @@
   import { asRecord, pb, user } from "$lib/pb";
   import type { Record } from "pocketbase";
   import { onMount } from "svelte";
+  import { onDestroy } from "svelte";
 
   let feed: Record[] = [];
   let loaded = false;
@@ -40,6 +41,10 @@
         feed = feed.filter((l) => l.id != rec.record.id);
       }
     })
+  })
+
+  onDestroy(() => {
+    if (unsubscribe) {unsubscribe()}
   })
 </script>
 

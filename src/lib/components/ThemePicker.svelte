@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { browser } from "$app/environment";
   import { onMount } from "svelte";
 
   const themes = ["light", "dark", "auto"];
@@ -9,6 +10,10 @@
   }
 
   let theme = "auto";
+  if (browser) {
+    theme = localStorage.getItem("theme") ?? "auto";
+    updateColorMode();
+  }
 
   function switchTheme(newTheme: string) {
     theme = newTheme;
@@ -33,8 +38,6 @@
   }
   
   onMount(() => {
-    theme = localStorage.getItem("theme") ?? "auto";
-    updateColorMode();
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
       updateColorMode();
     })
