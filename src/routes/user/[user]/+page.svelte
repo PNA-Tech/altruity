@@ -99,7 +99,7 @@
 
 {#if loaded}
 <div class="row mb-3 align-items-center">
-  <img src={pb.getFileUrl(user, user.avatar, { thumb: "128x128" })} alt={user.username} class="rounded-circle avatar col-3 img-fluid"/>
+  <img src={pb.getFileUrl(user, user.avatar, { thumb: "128x128" })} alt={user.username} class="rounded-circle avatar col-3 img-fluid avatar"/>
   <div class="col">
     <h1 class="row">{user.username}</h1>
     <span class="text-muted row">Joined {formatTime(user.created)}</span>
@@ -141,6 +141,10 @@
 {/if}
 
 <style>
+  .avatar {
+    max-width: 100px;
+  }
+
   .donatebtn {
     display: flex;
     align-items: center;
