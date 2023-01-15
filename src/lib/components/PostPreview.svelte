@@ -1,5 +1,6 @@
 <script lang="ts">
     import { pb } from "$lib/pb";
+    import { formatTime } from "$lib/util";
     import type { Record } from "pocketbase";
     import { onMount } from "svelte";
 
@@ -36,7 +37,7 @@
       <img src={pb.getFileUrl(author, author.avatar, { thumb: "50x50" })} class="avatar rounded-circle img-fluid col-2" alt={author.username}/>
       <div class="col">
         <a class="card-title h5 linktitle row" href={"/post/" + post.id}>{post.title}</a>
-        <p class="card-subtitle mb-2 text-muted row">Posted on {post.created}</p>
+        <p class="card-subtitle mb-2 text-muted row">Posted {formatTime(post.created)}</p>
       </div>
     </div>
     <p class="card-text">{post.description}</p>

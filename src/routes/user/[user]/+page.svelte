@@ -3,6 +3,7 @@
   import Loading from "$lib/components/Loading.svelte";
   import PostPreview from "$lib/components/PostPreview.svelte";
   import { pb, user as loggedUser } from "$lib/pb";
+  import { formatTime } from "$lib/util";
   import type { Record } from "pocketbase";
   import { onMount } from "svelte";
   import { onDestroy } from "svelte";
@@ -101,7 +102,7 @@
   <img src={pb.getFileUrl(user, user.avatar, { thumb: "128x128" })} alt={user.username} class="rounded-circle avatar col-3 img-fluid"/>
   <div class="col">
     <h1 class="row">{user.username}</h1>
-    <span class="text-muted row">Joined on {user.created}</span>
+    <span class="text-muted row">Joined {formatTime(user.created)}</span>
   </div>
 </div>
 

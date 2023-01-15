@@ -2,6 +2,7 @@
   import { page } from "$app/stores";
     import Loading from "$lib/components/Loading.svelte";
   import { pb, user, asRecord, publishFeed } from "$lib/pb";
+    import { formatTime } from "$lib/util";
   import type { Record } from "pocketbase";
   import { onMount, onDestroy } from "svelte";
 
@@ -92,7 +93,7 @@
     <img src={pb.getFileUrl(author, author.avatar, { thumb: "128x128" })} alt={author.username} class="rounded-circle avatar col-2 img-fluid"/>
     <div class="col">
       <a href={"/user/" + author.id} class="row h2 usertext">{author.username}</a>
-      <span class="text-muted row">Posted on {post.created}</span>
+      <span class="text-muted row">Posted {formatTime(post.created)}</span>
     </div>
   </div>
   <h1 class="display-1">{post.title}</h1>
