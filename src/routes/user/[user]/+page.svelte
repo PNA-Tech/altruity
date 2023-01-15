@@ -2,7 +2,7 @@
   import { page } from "$app/stores";
   import Loading from "$lib/components/Loading.svelte";
   import PostPreview from "$lib/components/PostPreview.svelte";
-  import { pb, user as loggedUser } from "$lib/pb";
+  import { pb, publishFeed, user as loggedUser } from "$lib/pb";
   import { formatTime } from "$lib/util";
   import type { Record } from "pocketbase";
   import { onMount } from "svelte";
@@ -79,7 +79,12 @@
     if (following) {
       await pb.collection("follows").delete(following)
     } else {
-      await pb.collection("follows").create({ user: $loggedUser?.id, following: user.id })
+      await pb.collection("follows").create({ user: $loggedUser!.id, following: user.id })
+      publishFeed({
+        kind: "follow",
+        author: $loggedUser!.id,
+        user: user.id,
+      }, $loggedUser!.id)
     }
     followLoading = false;
   }

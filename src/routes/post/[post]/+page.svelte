@@ -10,7 +10,7 @@
 
   let likes: Record[] = [];
   let userLiked: boolean;
-  $: userLiked = likes.some((v) => v.user == $user?.id)
+  $: userLiked = likes.some((v) => v.user == $user!.id)
 
   let comments: Record[] = [];
   let comment: string;
@@ -18,7 +18,7 @@
   let commenting = false;
   async function makeComment() {
     commenting = true;
-    await pb.collection("comments").create({ post: post.id, author: $user?.id, comment });
+    await pb.collection("comments").create({ post: post.id, author: $user!.id, comment });
     comment = "";
     commenting = false;
   }
@@ -66,11 +66,11 @@
   async function like() {
     liking = true;
     if (userLiked) {
-      let like = likes.find((v) => v.user == $user?.id);
+      let like = likes.find((v) => v.user == $user!.id);
       await pb.collection("likes").delete(like!.id);
       // TODO: Revert feed publishing on delete (should we even do this?)
     } else {
-      await pb.collection("likes").create({ post: post.id, user: $user?.id })
+      await pb.collection("likes").create({ post: post.id, user: $user!.id })
       await publishFeed({
         kind: "like",
         author: $user!.id,
