@@ -28,7 +28,7 @@
 </script>
 
 {#if !login}
-<nav class="navbar navbar-expand-lg bg-body-secondary">
+<nav class="navbar navbar-expand-lg bg-body-secondary sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
       <img src="/favicon.png" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -79,5 +79,10 @@
 <style>
   .nav-link {
     pointer-events: auto;
+  }
+
+  .sticky-top {
+    position: sticky;
+    top: 0;
   }
 </style>
