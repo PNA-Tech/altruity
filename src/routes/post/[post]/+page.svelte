@@ -27,7 +27,10 @@
   let author: Record;
   let unsubscribeLikes: () => void;
   let unsubscribeComments: () => void;
-  onMount(async () => {
+  async function load() {
+    unload();
+    loaded = false;
+
     post = await pb.collection("posts").getOne($page.params.post, { expand: "author" });
     author = post.expand.author as Record;
     likes = await pb.collection("likes").getFullList(200, { filter: `post="${post.id}"` });
@@ -55,12 +58,20 @@
     })
 
     loaded = true;
+  }
+  onMount(load);
+
+  page.subscribe((v) => {
+    if (loaded && post.id != v.params.post) {
+      load();
+    }
   })
 
-  onDestroy(() => {
+  function unload() {
     if (unsubscribeLikes) {unsubscribeLikes()};
     if (unsubscribeComments) {unsubscribeComments()};
-  })
+  }
+  onDestroy(unload);
 
   let liking = false;
   async function like() {
