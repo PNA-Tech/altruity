@@ -12,11 +12,14 @@
   let likeCount = 0;
   let commentCount = 0;
   onMount(async () => {
+    console.log("MOUNT")
     likeCount = (await pb.collection("likes").getList(1, 0, {
-      filter: `post="${post.id}"`
+      filter: `post="${post.id}"`,
+      $cancelKey: post.id,
     })).totalItems;
     commentCount = (await pb.collection("comments").getList(1, 0, {
-      filter: `post="${post.id}"`
+      filter: `post="${post.id}"`,
+      $cancelKey: post.id,
     })).totalItems;
   });
 
