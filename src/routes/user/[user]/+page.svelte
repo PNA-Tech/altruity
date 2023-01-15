@@ -123,7 +123,7 @@
   {:else if $loggedUser && $loggedUser.id == user.id}
   <a class="col-3 btn btn-outline-primary me-2" href="/settings">
     <div class="h-100 lgbtn">
-      <span class="d-flex"><i class="bi bi-pencil-square me-2"></i>Donate</span>
+      <span class="d-flex"><i class="bi bi-pencil-square me-2"></i>Edit</span>
     </div>
   </a>
   {/if}
