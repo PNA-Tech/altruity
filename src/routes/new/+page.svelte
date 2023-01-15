@@ -1,6 +1,6 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
-  import { pb, user } from "$lib/pb";
+  import { pb, publishFeed, user } from "$lib/pb";
 
 
   let title = "";
@@ -36,16 +36,11 @@
     let post = await pb.collection("posts").create(postData);
 
     // Add to feed
-    let followers = await pb.collection("follows").getFullList(100, { filter: `following="${$user!.id}"` })
-    let feed = pb.collection("feed");
-    for (let follower of followers) {
-      feed.create({
-        kind: "post",
-        post: post.id,
-        target: follower.user,
-        author: $user!.id,
-      })
-    }
+    await publishFeed({
+      kind: "post",
+      post: post.id,
+      author: $user!.id,
+    }, $user!.id);
 
     loading = false;
 

@@ -1,8 +1,8 @@
 <script lang="ts">
   import { page } from "$app/stores";
   import Login from "$lib/components/Login.svelte";
-  import { pb, user } from "$lib/pb";
-    import type { Record } from "pocketbase";
+  import { asRecord, pb, user } from "$lib/pb";
+  import type { Record } from "pocketbase";
   import { onMount } from "svelte";
 
   let login = false;
@@ -24,11 +24,6 @@
 
   function logout() {
     pb.authStore.clear();
-  }
-
-  // Work around
-  function asRecord(val: any): Record {
-    return val as Record;
   }
 </script>
 

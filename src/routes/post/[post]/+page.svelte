@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores";
-  import { pb, user } from "$lib/pb";
+    import Loading from "$lib/components/Loading.svelte";
+  import { pb, user, asRecord, publishFeed } from "$lib/pb";
   import type { Record } from "pocketbase";
   import { onMount, onDestroy } from "svelte";
 
@@ -19,10 +20,6 @@
     await pb.collection("comments").create({ post: post.id, author: $user?.id, comment });
     comment = "";
     commenting = false;
-  }
-
-  function asRecord(v: Record | Record[]): Record {
-    return v as Record;
   }
 
   let post: Record;
@@ -70,12 +67,24 @@
     if (userLiked) {
       let like = likes.find((v) => v.user == $user?.id);
       await pb.collection("likes").delete(like!.id);
+      // TODO: Revert feed publishing on delete (should we even do this?)
     } else {
       await pb.collection("likes").create({ post: post.id, user: $user?.id })
+      await publishFeed({
+        kind: "like",
+        author: $user!.id,
+        post: post.id,
+      }, $user!.id);
     }
     liking = false;
   }
 </script>
+
+<svelte:head>
+  {#if loaded}
+  <title>{post.title} | Altruity</title>
+  {/if}
+</svelte:head>
 
 {#if loaded}
 <div class="text-start">
@@ -123,11 +132,7 @@
   </div>
 </div>
 {:else}
-<div class="d-flex justify-content-center">
-  <div class="spinner-border" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-</div>
+<Loading/>
 {/if}
 
 <style>
