@@ -12,7 +12,6 @@
   let likeCount = 0;
   let commentCount = 0;
   onMount(async () => {
-    console.log("MOUNT")
     likeCount = (await pb.collection("likes").getList(1, 0, {
       filter: `post="${post.id}"`,
       $cancelKey: post.id,
