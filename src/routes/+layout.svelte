@@ -8,7 +8,7 @@
 
   let login = false;
 
-  const loginPages = ["/", "/new"];
+  const loginPages = ["/", "/new", "/settings"];
 
   onMount(() => {
     if ($user == null && loginPages.includes($page.url.pathname)) {
@@ -44,7 +44,7 @@
           <a class="nav-link" class:active={$page.url.pathname == "/about"} href="/about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" class:active={$page.url.pathname == "/find"} href="/find">Find Charities</a>
+          <a class="nav-link" class:active={$page.url.pathname == "/explore"} href="/explore">Explore</a>
         </li>
       </ul>
 
@@ -58,6 +58,7 @@
           <ul class="dropdown-menu dropdown-menu-end">
             <li><a class="dropdown-item" href={`/user/${$user?.id}`}>My Profile</a></li>
             <li><a class="dropdown-item" href="/new">New Post</a></li>
+            <li><a class="dropdown-item" href="/settings">Settings</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><button class="dropdown-item" on:click={logout}>Logout</button></li>
           </ul>

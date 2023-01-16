@@ -24,80 +24,77 @@
 <h1>Our Team</h1>
 <div class="row">
     <div class="col">
-        <div class="card">
+        <div class="card" style="height: 250px;">
             <div class="card-body">
                 <h5 class="card-title">Aarnav Bhat</h5>
-                <p class="card-text">Role</p>
+                <p class="card-text">Developer</p>
                 <p class="card-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Aarnav currently assists with the UI of Altruity, and is currently helping
+                    debugging and developing the Altruity Feed.
                 </p>
                 <a
-                    href="https://www.piyushacharya.com"
+                    href="mailto:aarnavpbhat@gmail.com"
                     target="_blank"
                     rel="noreferrer"
-                    class="btn btn-primary">Website</a
+                    class="btn btn-primary">Contact</a
                 >
             </div>
         </div>
     </div>
 
     <div class="col">
-        <div class="card">
+        <div class="card" style="height: 250px;">
             <!--<img src="/img/team/piyush.png" alt="Piyush" style="width: 100%" class="card-img-top"/>-->
             <div class="card-body">
                 <h5 class="card-title">Piyush Acharya</h5>
-                <p class="card-text">Role</p>
+                <p class="card-text">Developer</p>
                 <p class="card-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Piyush currently assist with the backend of Altruity and helps
+                    with the development of the Altruity Feed.
+
+                    <br>
+                    <br>
+                    
                 </p>
                 <a
                     href="https://www.piyushacharya.com"
                     target="_blank"
                     rel="noreferrer"
-                    class="btn btn-primary">Website</a
+                    class="btn btn-primary">Contact</a
                 >
             </div>
         </div>
     </div>
 
     <div class="col">
-        <div class="card">
+        <div class="card" style="height: 250px;">
             <div class="card-body">
                 <h5 class="card-title">Nishant Vikramaditya</h5>
-                <p class="card-text">Role</p>
+                <p class="card-text">Lead Developer</p>
                 <p class="card-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Nishant leads the development of Altruity, and is currently working
+                    on the backend of Altruity and many additonal components.
                 </p>
                 <a href="https://nv7haven.com" class="btn btn-primary"
-                    >Website</a
+                    >Contact</a
                 >
             </div>
         </div>
     </div>
     <div class="col">
-        <div class="card">
+        <div class="card" style="height: 250px;">
             <!--<img src="/w3images/team3.jpg" alt="Nishant" style="width:100%" class="card-img-top"/>-->
             <div class="card-body">
                 <h5 class="card-title">Aryan Agrawal</h5>
-                <p class="card-text">Role</p>
+                <p class="card-text">Developer</p>
                 <p class="card-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Aryan works on the front end of Altruity, and is currently helping
+                    to develop the Algorigthm for the Altruity Feed.
+
                 </p>
-                <a href="https://nv7haven.com" class="btn btn-primary"
-                    >Website</a
-                >
+                <a href="mailto:aryanagrawal8808@gmail.com" class="btn btn-primary"
+                    >Contact
+                </a>
             </div>
         </div>
     </div>
