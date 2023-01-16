@@ -1,6 +1,7 @@
 <script lang="ts">
   import Loading from "$lib/components/Loading.svelte";
   import PostPreview from "$lib/components/PostPreview.svelte";
+    import UserPreview from "$lib/components/UserPreview.svelte";
   import { asRecord, pb, user } from "$lib/pb";
     import { formatTime } from "$lib/util";
   import type { Record } from "pocketbase";
@@ -63,21 +64,7 @@
   {#if item.kind == "post"}
   <PostPreview post={asRecord(item.expand.post)}></PostPreview>
   {:else if item.kind == "follow"}
-  <div class="card mb-3">
-    <div class="card-header">
-      Followed by {asRecord(item.expand.author).username}
-    </div>
-    <div class="card-body">
-      <div class="text-start row justify-content-center">
-        <img src={pb.getFileUrl(asRecord(item.expand.user), asRecord(item.expand.user).avatar, { thumb: "128x128" })} class="avatar rounded-circle img-fluid col-2" alt={asRecord(item.expand.user).username}/>
-        <div class="col">
-          <a class="card-title h5 linktitle row" href={"/user/" + item.user}>{asRecord(item.expand.user).username}</a>
-          <p class="card-subtitle mb-2 text-muted row">Joined {formatTime(asRecord(item.expand.user).created)}</p>
-        </div>
-      </div>
-      <p class="card-text">{asRecord(item.expand.user).about}</p>
-    </div>
-  </div>
+  <UserPreview user={asRecord(item.expand.user)} follower={asRecord(item.expand.author)}></UserPreview>
   {:else if item.kind == "like"}
   <PostPreview post={asRecord(item.expand.post)} liker={asRecord(item.expand.author)}></PostPreview>
   {:else if item.kind == "donate"}
@@ -87,15 +74,3 @@
 {:else}
 <Loading/>
 {/if}
-
-<style>
-  .linktitle {
-    text-decoration: none;
-  }
-
-  .avatar {
-    width: auto;
-    height: 100%;
-    max-height: 50px;
-  }
-</style>
