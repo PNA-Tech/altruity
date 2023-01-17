@@ -45,3 +45,8 @@
 <h2>9. Governing Law</h2>
 
 <p>Any claim related to Altruity's Website shall be governed by the laws of us without regards to its conflict of law provisions.</p>
+
+<h2>10. Content Moderation</h2>
+
+<p>Any post, user, comment or anything on https://altruity.social/ can be removed if Altruity chooses to do so.</p>
+
