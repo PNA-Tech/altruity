@@ -24,13 +24,13 @@
 <h1>Our Team</h1>
 <div class="row">
     <div class="col">
-        <div class="card" style="height: 250px;">
+        <div class="card" style="height: fit-content;">
             <div class="card-body">
                 <h5 class="card-title">Aarnav Bhat</h5>
                 <p class="card-text">Developer</p>
                 <p class="card-text">
-                    Aarnav currently assists with the UI of Altruity, and is currently helping
-                    debugging and developing the Altruity Feed.
+                    Aarnav works on the UI of Altruity, and is currently helping
+                    debugging and developing the feed for Altruity.
                 </p>
                 <a
                     href="mailto:aarnav@altruity.social"
@@ -43,14 +43,14 @@
     </div>
 
     <div class="col">
-        <div class="card" style="height: 250px;">
+        <div class="card" style="height: fit-content;">
             <!--<img src="/img/team/piyush.png" alt="Piyush" style="width: 100%" class="card-img-top"/>-->
             <div class="card-body">
                 <h5 class="card-title">Piyush Acharya</h5>
                 <p class="card-text">Developer</p>
                 <p class="card-text">
-                    Piyush currently assist with the backend of Altruity and helps
-                    with the development of the Altruity Feed.
+                    Piyush is currently assisting with the backend of Altruity and helps
+                    with the development of the feed in Altruity.
 
                     <br>
                     <br>
@@ -67,13 +67,13 @@
     </div>
 
     <div class="col">
-        <div class="card" style="height: 250px;">
+        <div class="card" style="height: fit-content;">
             <div class="card-body">
                 <h5 class="card-title">Nishant Vikramaditya</h5>
                 <p class="card-text">Lead Developer</p>
                 <p class="card-text">
-                    Nishant leads the development of Altruity, and is currently working
-                    on the backend of Altruity and many additonal components.
+                    Nishant leads the development of Altruity, currently working
+                    on many components such as the backend of Altruity.
                 </p>
                 <a href="https://nv7haven.com" class="btn btn-primary"
                     >Contact</a
@@ -82,15 +82,14 @@
         </div>
     </div>
     <div class="col">
-        <div class="card" style="height: 250px;">
+        <div class="card" style="height: fit-content;">
             <!--<img src="/w3images/team3.jpg" alt="Nishant" style="width:100%" class="card-img-top"/>-->
             <div class="card-body">
                 <h5 class="card-title">Aryan Agrawal</h5>
                 <p class="card-text">Developer</p>
                 <p class="card-text">
-                    Aryan works on the front end of Altruity, and is currently helping
-                    to develop the Algorigthm for the Altruity Feed.
-
+                    Aryan is working on the front end of Altruity, currently helping
+                    develop a feed algorithm for the Altruity.
                 </p>
                 <a href="mailto:aryanagrawal8808@gmail.com" class="btn btn-primary"
                     >Contact
