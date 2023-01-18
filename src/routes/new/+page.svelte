@@ -1,6 +1,7 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
   import { pb, publishFeed, user } from "$lib/pb";
+  import type { ClientResponseError, Record as Row } from "pocketbase";
 
 
   let title = "";
@@ -18,6 +19,8 @@
   }
 
   let loading = false;
+  let error: Record<string, Error> = {};
+
   async function post() {
     loading = true;
 
@@ -33,7 +36,15 @@
         postData.append("pictures", pic);
       }
     }
-    let post = await pb.collection("posts").create(postData);
+
+    let post: Row;
+    try {
+      post = await pb.collection("posts").create(postData);
+    } catch (err) {
+      error = (err as ClientResponseError).data.data;
+      loading = false;
+      return;
+    }
 
     // Add to feed
     await publishFeed({
@@ -54,14 +65,29 @@
 
 <h1>New Post</h1>
 <form>
-  <input type="text" class="form-control form-control-lg mb-3" placeholder="Title" bind:value={title}/>
+  <input type="text" class="form-control form-control-lg mb-3" placeholder="Title" bind:value={title} class:is-invalid={error.title}/>
+  {#if error.title}
+    <div class="invalid-feedback">
+      {error.title.message}
+    </div>
+  {/if}
   <div class="mb-3 text-start">
     <label for="description" class="form-label">Description</label>
-    <textarea class="form-control" rows="3" placeholder="Describe the event..." id="description" bind:value={description}></textarea>
+    <textarea class="form-control" rows="3" placeholder="Describe the event..." id="description" bind:value={description} class:is-invalid={error.description}></textarea>
+    {#if error.description}
+      <div class="invalid-feedback">
+        {error.description.message}
+      </div>
+    {/if}
   </div>
   <div class="mb-3 text-start">
     <label for="pictures" class="form-label">Upload Pictures</label>
-    <input class="form-control" type="file" id="pictures" bind:files={pics} accept="image/jpg, image/jpeg, image/png" multiple on:change={onFileChange} bind:this={fileInput}/>
+    <input class="form-control" type="file" id="pictures" bind:files={pics} accept="image/jpg, image/jpeg, image/png" multiple on:change={onFileChange} bind:this={fileInput} class:is-invalid={error.pictures}/>
+    {#if error.pictures}
+      <div class="invalid-feedback">
+        {error.pictures.message}
+      </div>
+    {/if}
   </div>
   {#if pics && pics.length > 0}
     <div class="hstack gap-3 mb-3 justify-content-center list">
