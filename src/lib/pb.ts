@@ -5,6 +5,11 @@ export const pb = new PocketBase('https://altruity.nv7haven.com')
 pb.autoCancellation(false);
 export const user = writable(pb.authStore.model);
 
+export type Error = {
+  message: string,
+  code: string,
+}
+
 pb.authStore.onChange(() => {
   user.set(pb.authStore.model);
 })

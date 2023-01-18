@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { pb } from "$lib/pb";
+  import { pb, type Error } from "$lib/pb";
     import type { ClientResponseError } from "pocketbase";
 
   let email: string;
@@ -13,11 +13,7 @@
   let topic = ""; // TODO: Make autocomplete on the input
 
   let loading = false;
-  type errorVal = {
-    message: string,
-    code: string,
-  }
-  let error: Record<string, errorVal> = {};
+  let error: Record<string, Error> = {};
 
   async function login() {
     loading = true;
