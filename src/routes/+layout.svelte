@@ -72,7 +72,7 @@
   </div>
 </nav>
 
-<div class="container text-center mt-2">
+<div class="container text-center mt-2 pb-3">
   <slot></slot>
 </div>
 {:else}
