@@ -1,0 +1,26 @@
+name: Sync Fork
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Configure git
+      run: |
+        git config --global user.email "acharyapiyush1@outlook.com"
+        git config --global user.name "Piyush Acharya"
+
+    - name: Fetch upstream
+      run: git remote add upstream https://github.com/PNA-Tech/altruity.git
+
+    - name: Pull upstream changes
+      run: git pull upstream main
+
+    - name: Push changes to fork
+      run: git push origin main
