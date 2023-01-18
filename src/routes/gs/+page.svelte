@@ -1,7 +1,8 @@
 <svelte:head>
-  <title>Help | Altruity</title>
+  <title>Getting Started | Altruity</title>
 </svelte:head>
-<br>
+This page is in progress
+<!-- <br>
 <div>
     <h1 class="d-inline-block">Frequently Asked Questions</h1>
 </div>
@@ -47,4 +48,4 @@
     <h4>Still have more questions?</h4>
     <h5>Email us <a href="mailto:contact@altruity.social" style="text-decoration: solid;">here</a></h5>
 
-</div>
+</div> -->
