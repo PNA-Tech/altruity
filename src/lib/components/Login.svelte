@@ -13,34 +13,43 @@
 
   let loading = false;
 
+  let errorMessage = '';
+
+
   async function login() {
     loading = true;
-    if (snup) {
-      let data = new FormData();
-      data.append("email", email);
-      data.append("password", password);
-      data.append("passwordConfirm", password);
-      data.append("username", username);
-      data.append("kind", kind);
-      data.append("avatar", avatar[0]);
-      if (kind == "charity") {
-        data.append("donate", donate);
-        data.append("topic", topic);
-      }
-      
-      await pb.collection("users").create(data);
-      await pb.collection("users").authWithPassword(email, password);
-    } else {
-      await pb.collection("users").authWithPassword(email, password);
+    try {
+        if (snup) {
+        let data = new FormData();
+        data.append("email", email);
+        data.append("password", password);
+        data.append("passwordConfirm", password);
+        data.append("username", username);
+        data.append("kind", kind);
+        data.append("avatar", avatar[0]);
+        if (kind == "charity") {
+            data.append("donate", donate);
+            data.append("topic", topic);
+        }
+
+        await pb.collection("users").create(data);
+        await pb.collection("users").authWithPassword(email, password);
+        } else {
+        await pb.collection("users").authWithPassword(email, password);
+        }
+        loading = false;
+    } catch (error) {
+        errorMessage = "Login Failed";
+        loading = false;
     }
-    loading = false;
-  }
+}
+
+
 </script>
 
 <svelte:head>
   <title>Login | Altruity</title>
 </svelte:head>
-
 <div class="h-100 d-flex align-items-center justify-content-center col-12">
   <form class="col-md-4 bg-body-secondary p-3 rounded">
     <ul class="nav nav-pills nav-fill mb-3">
@@ -97,8 +106,14 @@
     <div class="w-100 vstack gap-2">
       <button class="btn btn-primary" type="submit" on:click|preventDefault={login} disabled={loading}>{snup ? "Sign Up" : "Log In"}</button>
     </div>
+    <div>
+      <p class="text-danger">{errorMessage}</p>
+    </div>
   </form>
+  
 </div>
+
+
 
 <style>
   :global(body, html, .main) {
