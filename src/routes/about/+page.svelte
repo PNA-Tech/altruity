@@ -33,7 +33,7 @@
                     debugging and developing the Altruity Feed.
                 </p>
                 <a
-                    href="mailto:aarnavpbhat@gmail.com"
+                    href="mailto:aarnav@altruity.social"
                     target="_blank"
                     rel="noreferrer"
                     class="btn btn-primary">Contact</a
