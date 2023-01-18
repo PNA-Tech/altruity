@@ -46,12 +46,8 @@
         <li class="nav-item">
           <a class="nav-link" class:active={$page.url.pathname == "/explore"} href="/explore">Explore</a>
         </li>  
-        <li class="nav-item dropdown">
-          <button class="btn nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Support</button>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="nav-link" class:active={$page.url.pathname == "/help"} href="/help">Help</a></li>
-            <li><a class="nav-link" class:active={$page.url.pathname == "/gs"} href="/gs">Getting Started</a></li>
-          </ul>
+        <li class="nav-item">
+          <a class="nav-link" class:active={$page.url.pathname == "/help"} href="/help">Help</a>
         </li>
       </ul>
 
