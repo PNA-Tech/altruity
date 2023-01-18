@@ -21,7 +21,7 @@
       data.append("topic", topic);
     }
     if (avatar && avatar.length > 0) {
-      data.append("avatar", avatar[0]);
+      data.append("avatar", avatar ? avatar[0] : "");
     }
     await pb.collection("users").update($user!.id, data);
 

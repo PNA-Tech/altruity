@@ -22,7 +22,7 @@
       data.append("passwordConfirm", password);
       data.append("username", username);
       data.append("kind", kind);
-      data.append("avatar", avatar[0]);
+      data.append("avatar", avatar ? avatar[0] : "");
       if (kind == "charity") {
         data.append("donate", donate);
         data.append("topic", topic);
