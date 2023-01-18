@@ -2,7 +2,7 @@
   import { page } from "$app/stores";
   import Loading from "$lib/components/Loading.svelte";
   import PostPreview from "$lib/components/PostPreview.svelte";
-  import { pb, publishFeed, user as loggedUser } from "$lib/pb";
+  import { asRecord, pb, publishFeed, user as loggedUser } from "$lib/pb";
   import { formatTime } from "$lib/util";
   import type { Record } from "pocketbase";
   import { onMount } from "svelte";
@@ -15,11 +15,10 @@
   let posts: Record[] = [];
   let unsubscribePosts: () => void;
 
-  let followerCount: number;
+  let followerUsers: string[] = [];
   let unsubscribeFollowerCount: () => void;
-  let followingCount: number;
+  let followingUsers: string[] = [];
   let unsubscribeFollowingCount: () => void;
-  let following: string | null;
 
   async function load() {
     unload();
@@ -42,36 +41,23 @@
     })
 
     // Follower/following count
-    followerCount = (await pb.collection("follows").getList(1, 0, { filter: `following="${user.id}"` })).totalItems;
-    unsubscribeFollowerCount = await pb.collection("follows").subscribe("*", async (rec) => {
-      if (rec.record.following != user.id) {return;}
-      if (rec.action == "create") {
-        followerCount++;
-        if ($loggedUser && rec.record.user == $loggedUser.id) {
-          following = rec.record.id;
-        }
-      } else if (rec.action == "delete") {
-        followerCount--;
-        if (following == rec.record.id) {
-          following = null;
-        }
+    followingUsers = (await pb.collection("users").getOne(user.id)).following;
+    unsubscribeFollowerCount = await pb.collection("users").subscribe(user.id, async (rec) => {
+      if (rec.action == "update") {
+        followerUsers = rec.record.following;
       }
     })
-    followingCount = (await pb.collection("follows").getList(1, 0, { filter: `user="${user.id}"` })).totalItems;
-    unsubscribeFollowingCount = await pb.collection("follows").subscribe("*", async (rec) => {
-      if (rec.record.user != user.id) {return;}
+    followerUsers = (await pb.collection("users").getFullList(50, { filter: `following.id ?= "${user.id}"` }));
+    unsubscribeFollowingCount = await pb.collection("users").subscribe("*", async (rec) => {
+      if (!rec.record.following.includes(user.id)) {return;}
       if (rec.action == "create") {
-        followingCount++;
+        if (!followerUsers.includes(rec.record.id)) {
+          followerUsers = [...followingUsers, rec.record.id];
+        }
       } else if (rec.action == "delete") {
-        followingCount--;
+        followerUsers = followerUsers.filter((l) => l != rec.record.id);
       }
     })
-
-    // You are following?
-    if ($loggedUser) {
-      let vals = (await pb.collection("follows").getList(1, 1, { filter: `user="${$loggedUser.id}" && following="${user.id}"` })).items;
-      if (vals.length > 0) {following = vals[0].id;}
-    }
 
     loaded = true;
   }
@@ -87,10 +73,10 @@
   let followLoading = false;
   async function follow() {
     followLoading = true;
-    if (following) {
-      await pb.collection("follows").delete(following)
+    if (followerUsers.includes($loggedUser!.id)) {
+      await pb.collection("users").update($loggedUser!.id, { following: $loggedUser!.following.filter((l: string) => l != user.id) })
     } else {
-      await pb.collection("follows").create({ user: $loggedUser!.id, following: user.id })
+      await pb.collection("users").update($loggedUser!.id, { following: [...$loggedUser!.following, user.id] })
       publishFeed({
         kind: "follow",
         author: $loggedUser!.id,
@@ -128,11 +114,11 @@
   <div class="row col">
     <div class="col-6">Followers</div>
     <div class="col-6">Following</div>
-    <div class="col-6 text-muted">{followerCount}</div>
-    <div class="col-6 text-muted">{followingCount}</div>
+    <div class="col-6 text-muted">{followerUsers.length}</div>
+    <div class="col-6 text-muted">{followingUsers.length}</div>
   </div>
   {#if !$loggedUser || $loggedUser.id != user.id}
-  <button class="col-3 btn btn-primary me-2" disabled={followLoading} on:click={follow}>{following ? "Unfollow" : "Follow"}</button>
+  <button class="col-3 btn btn-primary me-2" disabled={followLoading} on:click={follow}>{followerUsers.includes(asRecord($loggedUser).id) ? "Unfollow" : "Follow"}</button>
   {:else if $loggedUser && $loggedUser.id == user.id}
   <a class="col-3 btn btn-outline-primary me-2" href="/settings">
     <div class="h-100 lgbtn">

@@ -12,20 +12,15 @@
 
   onMount(async () => {
     if ($loggedUser) {
-      following = await pb.collection("follows").getList(1, 1, {
-        filter: `user="${$loggedUser!.id}" && following="${user.id}"`,
-        $cancelKey: $loggedUser!.id + user.id
-      }).then((l) => l.totalItems > 0)
+      following = ((await pb.collection("users").getOne($loggedUser.id)).following as string[]).includes(user.id);
       followLoading = false;
     }
   })
 
   async function follow() {
     followLoading = true;
-    await pb.collection("follows").create({
-      user: $loggedUser!.id,
-      following: user.id,
-    });
+    // Get followers
+    await pb.collection("users").update($loggedUser!.id, { following: [...$loggedUser!.following, user.id] });
     following = true;
     followLoading = false;
   }
