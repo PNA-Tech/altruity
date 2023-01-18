@@ -1,5 +1,6 @@
 <script lang="ts">
   import { pb } from "$lib/pb";
+    import type { ClientResponseError } from "pocketbase";
 
   let email: string;
   let password: string;
@@ -12,6 +13,11 @@
   let topic = ""; // TODO: Make autocomplete on the input
 
   let loading = false;
+  type errorVal = {
+    message: string,
+    code: string,
+  }
+  let error: Record<string, errorVal> = {};
 
   async function login() {
     loading = true;
@@ -27,11 +33,29 @@
         data.append("donate", donate);
         data.append("topic", topic);
       }
-      
-      await pb.collection("users").create(data);
+
+      try {
+        await pb.collection("users").create(data);
+      } catch (err) {
+        let e = err as ClientResponseError;
+        error = e.data.data;
+        loading = false;
+        return;
+      }
       await pb.collection("users").authWithPassword(email, password);
     } else {
-      await pb.collection("users").authWithPassword(email, password);
+      try {
+        await pb.collection("users").authWithPassword(email, password);
+      } catch (err) {
+        let e = err as ClientResponseError;
+        error = e.data.data;
+        if (Object.keys(error).length == 0) {
+          error.email = { message: e.message, code: "" };
+        }
+        loading = false;
+        return;
+      }
+  
     }
     loading = false;
   }
@@ -54,22 +78,42 @@
 
     <div class="mb-3">
       <label for="emailInput" class="form-label">Email</label>
-      <input type="email" class="form-control" id="emailInput" placeholder="example@example.com" bind:value={email}>
+      <input type="email" class="form-control" class:is-invalid={error.email} id="emailInput" placeholder="example@example.com" bind:value={email}>
+      {#if error.email}
+      <div class="invalid-feedback">
+        {error.email.message}
+      </div>
+      {/if}
     </div>
     <div class="mb-3">
       <label for="passwordInput" class="form-label">Password</label>
-      <input type="password" class="form-control" id="passwordInput" placeholder="Password" bind:value={password}>
+      <input type="password" class:is-invalid={error.password} class="form-control" id="passwordInput" placeholder="Password" bind:value={password}>
+      {#if error.password}
+      <div class="invalid-feedback">
+        {error.password.message}
+      </div>
+      {/if}
     </div>
 
     {#if snup}
     <div class="mb-3">
       <label for="nameInput" class="form-label">Username</label>
-      <input type="text" class="form-control" id="nameInput" placeholder="CoolUser123" bind:value={username}>
+      <input type="text" class="form-control" class:is-invalid={error.username} id="nameInput" placeholder="CoolUser123" bind:value={username}>
+      {#if error.username}
+      <div class="invalid-feedback">
+        {error.username.message}
+      </div>
+      {/if}
     </div>
 
     <div class="mb-3">
       <label for="avatarInput" class="form-label">Avatar</label>
-      <input type="file" class="form-control" id="avatarInput" bind:files={avatar} accept="image/jpg, image/jpeg, image/png">
+      <input type="file" class="form-control" id="avatarInput" class:is-invalid={error.avatar} bind:files={avatar} accept="image/jpg, image/jpeg, image/png">
+      {#if error.avatar}
+      <div class="invalid-feedback">
+        {error.avatar.message}
+      </div>
+      {/if}
     </div>
 
     <div class="mb-3">
@@ -84,12 +128,22 @@
     {#if kind == "charity"}
     <div class="mb-3">
       <label for="donateInput" class="form-label">Donation Link</label>
-      <input type="url" class="form-control" id="donateInput" placeholder="Donation website URL" bind:value={donate}>
+      <input type="url" class="form-control" id="donateInput" class:is-invalid={error.donate} placeholder="Donation website URL" bind:value={donate}>
+      {#if error.donate}
+      <div class="invalid-feedback">
+        {error.donate.message}
+      </div>
+      {/if}
     </div>
 
     <div class="mb-3">
       <label for="topicInput" class="form-label">Topic</label>
-      <input type="text" class="form-control" id="topicInput" placeholder="e.g. Crayons" bind:value={topic}>
+      <input type="text" class="form-control" id="topicInput" class:is-invalid={error.topic} placeholder="e.g. Crayons" bind:value={topic}>
+      {#if error.topic}
+      <div class="invalid-feedback">
+        {error.topic.message}
+      </div>
+      {/if}
     </div>
     {/if}
     {/if}
