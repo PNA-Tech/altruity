@@ -2,26 +2,18 @@
   import { pb, user as loggedUser } from "$lib/pb";
   import { formatTime } from "$lib/util";
   import type { Record } from "pocketbase";
-  import { onMount } from "svelte";
 
   export let user: Record;
   export let follower: Record | null = null;
 
-  let followLoading = true;
+  let followLoading = false;
   let following = false;
-
-  onMount(async () => {
-    if ($loggedUser) {
-      following = ((await pb.collection("users").getOne($loggedUser.id)).following as string[]).includes(user.id);
-      followLoading = false;
-    }
-  })
+  $: if ($loggedUser) {following = $loggedUser!.following.includes(user.id)};
 
   async function follow() {
     followLoading = true;
     // Get followers
     await pb.collection("users").update($loggedUser!.id, { following: [...$loggedUser!.following, user.id] });
-    following = true;
     followLoading = false;
   }
 </script>

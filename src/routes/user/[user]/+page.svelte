@@ -44,17 +44,15 @@
     followingUsers = (await pb.collection("users").getOne(user.id)).following;
     unsubscribeFollowerCount = await pb.collection("users").subscribe(user.id, async (rec) => {
       if (rec.action == "update") {
-        followerUsers = rec.record.following;
+        followingUsers = rec.record.following;
       }
     })
-    followerUsers = (await pb.collection("users").getFullList(50, { filter: `following.id ?= "${user.id}"` }));
+    followerUsers = (await pb.collection("users").getFullList(50, { filter: `following.id ?= "${user.id}"` })).map((l) => l.id);
     unsubscribeFollowingCount = await pb.collection("users").subscribe("*", async (rec) => {
-      if (!rec.record.following.includes(user.id)) {return;}
-      if (rec.action == "create") {
-        if (!followerUsers.includes(rec.record.id)) {
-          followerUsers = [...followingUsers, rec.record.id];
-        }
-      } else if (rec.action == "delete") {
+      if (!followerUsers.includes(rec.record.id) && rec.record.following.includes(user.id)) {
+        followerUsers = [...followerUsers, rec.record.id];
+      }
+      if (followerUsers.includes(rec.record.id) && !rec.record.following.includes(user.id)) {
         followerUsers = followerUsers.filter((l) => l != rec.record.id);
       }
     })
