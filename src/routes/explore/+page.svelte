@@ -17,13 +17,13 @@
     loaded = false;
     if (user) {
       posts = [];
-      users = (await pb.collection("users").getList(1, 30, {
+      users = (await pb.collection("users").getList(1, 45, {
         ...(query != "" ? {filter: `username~"${query}"||about~"${query}"`} : {}),
-        sort: "-created", // TODO: Sort by follower count instead
+        sort: "-following", // TODO: Sort by follower count instead
       })).items;
     } else {
       users = [];
-      posts = (await pb.collection("posts").getList(1, 30, {
+      posts = (await pb.collection("posts").getList(1, 35, {
         ...(query != "" ? {filter: `title~"${query}"||description~"${query}"`} : {}),
         sort: "-created", // TODO: Sort by like count instead
         expand: "author",
