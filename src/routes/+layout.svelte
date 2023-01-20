@@ -53,7 +53,7 @@
 
       <ul class="navbar-nav">
         {#if $user}
-        <button type="button" class="btn btn-outline-success" style="margin-right: 5px">
+        <button type="button" class="btn btn-outline-primary" style="margin-right: 5px">
           <a class="dropdown-item" href="/new">New Post</a>
         </button>
         <li class="nav-item dropdown">

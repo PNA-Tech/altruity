@@ -96,7 +96,7 @@
       {/each}
     </div>
   {/if}
-  <button type="submit" class="btn btn-success btn-lg w-100" disabled={loading} on:click|preventDefault={post}>Post</button>
+  <button type="submit" class="btn btn-primary btn-lg w-100" disabled={loading} on:click|preventDefault={post}>Post</button>
 </form>
 
 <style>
