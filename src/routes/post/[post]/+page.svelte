@@ -127,7 +127,7 @@
 
   <form class="input-group w-100 mb-3">
     <input type="text" class="form-control" bind:value={comment} placeholder="Post a comment..."/>
-    <button class="btn btn-primary" on:click|preventDefault={makeComment} disabled={commenting}>Post</button>
+    <button class="btn btn-success" on:click|preventDefault={makeComment} disabled={commenting}>Post</button>
   </form>
   {/if}
 
