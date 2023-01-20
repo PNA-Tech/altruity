@@ -26,7 +26,7 @@
     <div class="col">
         <div class="card" style="height: fit-content;">
             <div class="card-body">
-                <h5 class="card-title"><a href="https://altruity.social/user/ln2qzigub1ev8uy">Aarnav Bhat</a></h5>
+                <h5 class="card-title"><a href="https://altruity.social/user/ln2qzigub1ev8uy" style="text-decoration: none;">Aarnav Bhat</a></h5>
                 <p class="card-text">Developer</p>
                 <p class="card-text">
                     Aarnav works on the UI of Altruity, and is currently helping
@@ -46,7 +46,7 @@
         <div class="card" style="height: fit-content;">
             <!--<img src="/img/team/piyush.png" alt="Piyush" style="width: 100%" class="card-img-top"/>-->
             <div class="card-body">
-                <h5 class="card-title"><a href="https://altruity.social/user/wlghn7lmuqz2eaq">Piyush Acharya</a></h5>
+                <h5 class="card-title"><a href="https://altruity.social/user/wlghn7lmuqz2eaq" style="text-decoration: none;">Piyush Acharya</a></h5>
                 <p class="card-text">Lead Researcher</p>
                 <p class="card-text">
                     Piyush leads the research behind our innovative features, identifies new 
@@ -68,7 +68,7 @@
     <div class="col">
         <div class="card" style="height: fit-content;">
             <div class="card-body">
-                <h5 class="card-title"><a href="https://altruity.social/user/cxrooa8mvag5ksm">Nishant Vikramaditya</a></h5>
+                <h5 class="card-title"><a href="https://altruity.social/user/cxrooa8mvag5ksm" style="text-decoration: none;">Nishant Vikramaditya</a></h5>
                 <p class="card-text">Lead Developer</p>
                 <p class="card-text">
                     Nishant leads the development of Altruity, currently working
@@ -84,7 +84,7 @@
         <div class="card" style="height: fit-content;">
             <!--<img src="/w3images/team3.jpg" alt="Nishant" style="width:100%" class="card-img-top"/>-->
             <div class="card-body">
-                <h5 class="card-title"><a href="https://altruity.social/user/v8vkl860ka0gxd2">Aryan Agrawal</a></h5>
+                <h5 class="card-title"><a href="https://altruity.social/user/v8vkl860ka0gxd2" style="text-decoration: none;">Aryan Agrawal</a></h5>
                 <p class="card-text">Developer</p>
                 <p class="card-text">
                     Aryan is working on the front end of Altruity, currently helping
