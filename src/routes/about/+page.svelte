@@ -26,7 +26,7 @@
     <div class="col">
         <div class="card" style="height: fit-content;">
             <div class="card-body">
-                <h5 class="card-title">Aarnav Bhat</h5>
+                <h5 class="card-title"><a href="https://altruity.social/user/ln2qzigub1ev8uy">Aarnav Bhat</a></h5>
                 <p class="card-text">Developer</p>
                 <p class="card-text">
                     Aarnav works on the UI of Altruity, and is currently helping
@@ -36,7 +36,7 @@
                     href="mailto:aarnav@altruity.social"
                     target="_blank"
                     rel="noreferrer"
-                    class="btn btn-primary">Contact</a
+                    class="btn btn-success">Contact</a
                 >
             </div>
         </div>
@@ -46,12 +46,11 @@
         <div class="card" style="height: fit-content;">
             <!--<img src="/img/team/piyush.png" alt="Piyush" style="width: 100%" class="card-img-top"/>-->
             <div class="card-body">
-                <h5 class="card-title">Piyush Acharya</h5>
-                <p class="card-text">Developer</p>
+                <h5 class="card-title"><a href="https://altruity.social/user/wlghn7lmuqz2eaq">Piyush Acharya</a></h5>
+                <p class="card-text">Lead Researcher</p>
                 <p class="card-text">
-                    Piyush is currently assisting with the backend of Altruity and helps
-                    with the development of the feed in Altruity.
-
+                    Piyush leads the research behind our innovative features, identifies new 
+                    opportunities, and also works on the frontend of Altruity.
                     <br>
                     <br>
                     
@@ -60,7 +59,7 @@
                     href="https://www.piyushacharya.com"
                     target="_blank"
                     rel="noreferrer"
-                    class="btn btn-primary">Contact</a
+                    class="btn btn-success">Contact</a
                 >
             </div>
         </div>
@@ -69,13 +68,13 @@
     <div class="col">
         <div class="card" style="height: fit-content;">
             <div class="card-body">
-                <h5 class="card-title">Nishant Vikramaditya</h5>
+                <h5 class="card-title"><a href="https://altruity.social/user/cxrooa8mvag5ksm">Nishant Vikramaditya</a></h5>
                 <p class="card-text">Lead Developer</p>
                 <p class="card-text">
                     Nishant leads the development of Altruity, currently working
                     on many components such as the backend of Altruity.
                 </p>
-                <a href="https://nv7haven.com" class="btn btn-primary"
+                <a href="https://nv7haven.com" class="btn btn-success"
                     >Contact</a
                 >
             </div>
@@ -85,13 +84,13 @@
         <div class="card" style="height: fit-content;">
             <!--<img src="/w3images/team3.jpg" alt="Nishant" style="width:100%" class="card-img-top"/>-->
             <div class="card-body">
-                <h5 class="card-title">Aryan Agrawal</h5>
+                <h5 class="card-title"><a href="https://altruity.social/user/v8vkl860ka0gxd2">Aryan Agrawal</a></h5>
                 <p class="card-text">Developer</p>
                 <p class="card-text">
                     Aryan is working on the front end of Altruity, currently helping
                     develop a feed algorithm for the Altruity.
                 </p>
-                <a href="mailto:aryanagrawal8808@gmail.com" class="btn btn-primary"
+                <a href="mailto:aryanagrawal8808@gmail.com" class="btn btn-success"
                     >Contact
                 </a>
             </div>

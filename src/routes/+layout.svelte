@@ -53,21 +53,23 @@
 
       <ul class="navbar-nav">
         {#if $user}
+        <button type="button" class="btn btn-outline-success" style="margin-right: 5px">
+          <a class="dropdown-item" href="/new">New Post</a>
+        </button>
         <li class="nav-item dropdown">
           <button class="btn nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <img src={pb.getFileUrl(asRecord($user), $user?.avatar, { thumb: "128x128" })} alt={$user?.username} style="width: 30px; height: 30px; margin-right: 3px" class="rounded-circle mr-1"/>
             {$user?.username}
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href={`/user/${$user?.id}`}>My Profile</a></li>
-            <li><a class="dropdown-item" href="/new">New Post</a></li>
+            <li><a class="dropdown-item" href={`/user/${$user?.id}`}>View Profile</a></li>
             <li><a class="dropdown-item" href="/settings">Settings</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><button class="dropdown-item" on:click={logout}>Logout</button></li>
+            <li><button class="dropdown-item" on:click={logout}>Sign Out</button></li>
           </ul>
         </li>
         {:else}
-        <button class="btn nav-link" on:click={() => login = true}>Login</button>
+        <button class="btn nav-link" on:click={() => login = true}>Sign In</button>
         {/if}
         <ThemePicker />
       </ul>
