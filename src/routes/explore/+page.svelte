@@ -46,7 +46,7 @@
 
 <div class="input-group mb-3">
   <input type="text" class="form-control" bind:value={query} placeholder="Search...">
-  <button class="btn btn-outline-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" disabled={!loaded}>
+  <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" disabled={!loaded}>
     <i class="bi bi-search"></i>
   </button>
   <ul class="dropdown-menu dropdown-menu-end">

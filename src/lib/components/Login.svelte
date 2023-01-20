@@ -145,7 +145,7 @@
     {/if}
 
     <div class="w-100 vstack gap-2">
-      <button class="btn btn-success" type="submit" on:click|preventDefault={login} disabled={loading}>{snup ? "Sign Up" : "Log In"}</button>
+      <button class="btn btn-primary" type="submit" on:click|preventDefault={login} disabled={loading}>{snup ? "Sign Up" : "Log In"}</button>
     </div>
   </form>
 </div>

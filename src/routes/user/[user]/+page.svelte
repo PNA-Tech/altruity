@@ -116,9 +116,9 @@
     <div class="col-6 text-muted">{followingUsers.length}</div>
   </div>
   {#if !$loggedUser || $loggedUser.id != user.id}
-  <button class="col-3 btn btn-success me-2" disabled={followLoading} on:click={follow}>{followerUsers.includes(asRecord($loggedUser).id) ? "Unfollow" : "Follow"}</button>
+  <button class="col-3 btn btn-primary me-2" disabled={followLoading} on:click={follow}>{followerUsers.includes(asRecord($loggedUser).id) ? "Unfollow" : "Follow"}</button>
   {:else if $loggedUser && $loggedUser.id == user.id}
-  <a class="col-3 btn btn-outline-success me-2" href="/settings">
+  <a class="col-3 btn btn-outline-primary me-2" href="/settings">
     <div class="h-100 lgbtn">
       <span class="d-flex"><i class="bi bi-pencil-square me-2"></i>Edit</span>
     </div>
@@ -134,7 +134,7 @@
 
 {#if user.kind == "charity"}
 <div class="row mb-3">
-  <a class="col btn btn-success ms-2 btn-lg" target="_blank" rel="noreferrer" href={user.donate}>
+  <a class="col btn btn-primary ms-2 btn-lg" target="_blank" rel="noreferrer" href={user.donate}>
     <div class="h-100 lgbtn">
       <span class="d-flex">Donate</span>
     </div>
