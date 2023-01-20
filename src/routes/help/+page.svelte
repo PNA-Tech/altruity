@@ -47,4 +47,10 @@
     <h4>Still have more questions?</h4>
     <h5>Email us <a href="mailto:contact@altruity.social" style="text-decoration: solid;">here</a></h5>
 
+    <br>
+    <h4>Can you help us out?</h4>
+    Please take the short survery below, it will help us really improve Altruity.
+    <br>  
+    <div data-tf-widget="p96Q86k5" data-tf-opacity="100" data-tf-iframe-props="title=Altruity" data-tf-transitive-search-params data-tf-medium="snippet" style="width:100%;height:500px;"></div><script src="//embed.typeform.com/next/embed.js"></script>
+    <br>
 </div>
