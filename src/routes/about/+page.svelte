@@ -36,7 +36,7 @@
                     href="mailto:aarnav@altruity.social"
                     target="_blank"
                     rel="noreferrer"
-                    class="btn btn-primary">Contact</a
+                    class="btn btn-success">Contact</a
                 >
             </div>
         </div>
@@ -59,7 +59,7 @@
                     href="https://www.piyushacharya.com"
                     target="_blank"
                     rel="noreferrer"
-                    class="btn btn-primary">Contact</a
+                    class="btn btn-success">Contact</a
                 >
             </div>
         </div>
@@ -74,7 +74,7 @@
                     Nishant leads the development of Altruity, currently working
                     on many components such as the backend of Altruity.
                 </p>
-                <a href="https://nv7haven.com" class="btn btn-primary"
+                <a href="https://nv7haven.com" class="btn btn-success"
                     >Contact</a
                 >
             </div>
@@ -90,7 +90,7 @@
                     Aryan is working on the front end of Altruity, currently helping
                     develop a feed algorithm for the Altruity.
                 </p>
-                <a href="mailto:aryanagrawal8808@gmail.com" class="btn btn-primary"
+                <a href="mailto:aryanagrawal8808@gmail.com" class="btn btn-success"
                     >Contact
                 </a>
             </div>

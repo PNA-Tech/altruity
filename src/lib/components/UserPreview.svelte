@@ -34,7 +34,7 @@
       <div class="col flex-grow"></div>
       {#if $loggedUser && $loggedUser.id != user.id}
       <div class="col">
-        <button class="btn btn-primary followbtn" disabled={followLoading || following} on:click={follow}>{following ? "Followed" : "Follow"}</button>
+        <button class="btn btn-success followbtn" disabled={followLoading || following} on:click={follow}>{following ? "Followed" : "Follow"}</button>
       </div>
       {/if}
     </div>
