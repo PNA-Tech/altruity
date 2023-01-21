@@ -52,8 +52,6 @@
                     Piyush is currently assisting with the backend of Altruity and helps
                     with the development of the feed in Altruity.
 
-                    <br>
-                    <br>
                     
                 </p>
                 <a

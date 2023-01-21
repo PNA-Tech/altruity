@@ -17,7 +17,7 @@
     loaded = false;
     if (user) {
       posts = [];
-      users = (await pb.collection("users").getList(1, 30, {
+      users = (await pb.collection("users").getList(1, 45, {
         ...(query != "" ? {filter: `username~"${query}"||about~"${query}"`} : {}),
         sort: "-created", // TODO: Sort by follower count instead
       })).items;
@@ -47,7 +47,7 @@
 <div class="input-group mb-3">
   <input type="text" class="form-control" bind:value={query} placeholder="Search...">
   <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" disabled={!loaded}>
-    <i class="bi bi-search"></i>
+    <i class="bi bi-search"></i> Search
   </button>
   <ul class="dropdown-menu dropdown-menu-end">
     <li><button class="dropdown-item" on:click={() => {search(true)}}>Search users</button></li>
