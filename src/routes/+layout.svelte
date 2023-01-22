@@ -52,12 +52,6 @@
       </ul>
 
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" class:active={$page.url.pathname == "/new"} href="/new" style="padding-top: 19.2%;"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
-            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-          </svg></a>
-        </li> 
         {#if $user}
         <li class="nav-item dropdown">
           <button class="btn nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -75,6 +69,15 @@
         <button class="btn nav-link" on:click={() => login = true}>Login</button>
         {/if}
         <ThemePicker />
+        <li class="nav-item">
+          <a class="nav-link newpostlink" class:active={$page.url.pathname == "/new"} href="/new">
+            <i class="bi bi-plus-square newpostbtn d-none d-lg-block d-xl-none"></i>
+            <div class="d-lg-none">
+              <i class="bi bi-plus-square"></i>
+              New Post
+            </div>
+          </a>
+        </li> 
       </ul>
     </div>
   </div>
@@ -95,5 +98,13 @@
   .sticky-top {
     position: sticky;
     top: 0;
+  }
+
+  .newpostbtn {
+    font-size: 1.7em;
+  }
+
+  .newpostlink {
+    padding: 0;
   }
 </style>
