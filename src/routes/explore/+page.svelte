@@ -42,33 +42,6 @@
 
 <svelte:head>
   <title>Altruity | Explore</title>
-    <link rel="canonical" href="https://altruity.social/" />
-    <meta property="og:title" content="Altruity | Explore" />
-    <meta
-        property="og:description"
-        content="Explore users, charities and potential donors with Altruity. Search for these users and find like minded people for non-profits and explore oppurtunities.
-        Altruity is accesible at https://altruity.social/
-         About Altruity: Altruity is a social media platform that connects charitable organizations
-        with potential donors and volunteers. With a user-friendly interface and
-        powerful tools, Altruity makes it easy for charities to share their
-        missions, fundraise, and connect with their communities. Whether you're a
-        charity looking to spread the word about your cause or a philanthropist
-        searching for ways to make a difference, Altruity has something for you.
-        With features like customizable profiles, event listings, and easy-to-use
-        donation buttons, Altruity streamlines the process of connecting charities
-        with the resources they need to make an impact. Join the Altruity community
-        today and start making a difference!"
-    />
-    <meta property="og:image" content="/static/favicon.png" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://altruity.social/explore" />
-    <meta property="website:publisher" content="altruity.social"/>
-    <meta property="og:locale" content="en_US"/>
-    <meta property="og:site_name" content="Altruity"/>
-    <meta property="og:publisher" content="altruity.social"/>
-    <meta property="og:author" content="altruity.social"/>
-    <meta property="og:oname" content="Altruity"/>
-    <meta property="og:publisher" content="altruity.social"/>
 </svelte:head>
 
 <div class="input-group mb-3">
