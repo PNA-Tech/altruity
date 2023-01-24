@@ -62,92 +62,102 @@
 </svelte:head>
 
 <div class="h-100 d-flex align-items-center justify-content-center col-12">
-  <form class="col-md-4 bg-body-secondary p-3 rounded">
-    <ul class="nav nav-pills nav-fill mb-3">
-      <li class="nav-item">
-        <button class="nav-link" class:active={!snup} on:click={() => {snup = false}}>Login</button>
-      </li>
-      <li class="nav-item">
-        <button class="nav-link" class:active={snup} on:click={() => {snup = true}}>Sign Up</button>
-      </li>
-    </ul>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="text-center">
+        <h1>Welcome to Altruity</h1>
+        <p>Please login or sign up to continue.</p>
+      </div>
+    </div>
+    <div class="col-md-12">
+    <form class="col-md-12 bg-body-secondary p-3 rounded">
+      <ul class="nav nav-pills nav-fill mb-3">
+        <li class="nav-item">
+          <button class="nav-link" class:active={!snup} on:click={() => {snup = false}}>Login</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" class:active={snup} on:click={() => {snup = true}}>Sign Up</button>
+        </li>
+      </ul>
+    
+      <div class="mb-3">
+        <label for="emailInput" class="form-label">Email</label>
+        <input type="email" class="form-control" class:is-invalid={error.email} id="emailInput" placeholder="example@example.com" bind:value={email}>
+        {#if error.email}
+        <div class="invalid-feedback">
+          {error.email.message}
+        </div>
+        {/if}
+      </div>
+      <div class="mb-3">
+        <label for="passwordInput" class="form-label">Password</label>
+        <input type="password" class:is-invalid={error.password} class="form-control" id="passwordInput" placeholder="Password" bind:value={password}>
+        {#if error.password}
+        <div class="invalid-feedback">
+          {error.password.message}
+        </div>
+        {/if}
+      </div>
 
-    <div class="mb-3">
-      <label for="emailInput" class="form-label">Email</label>
-      <input type="email" class="form-control" class:is-invalid={error.email} id="emailInput" placeholder="example@example.com" bind:value={email}>
-      {#if error.email}
-      <div class="invalid-feedback">
-        {error.email.message}
+      {#if snup}
+      <div class="mb-3">
+        <label for="nameInput" class="form-label">Username</label>
+        <input type="text" class="form-control" class:is-invalid={error.username} id="nameInput" placeholder="CoolUser123" bind:value={username}>
+        {#if error.username}
+        <div class="invalid-feedback">
+          {error.username.message}
+        </div>
+        {/if}
+      </div>
+
+      <div class="mb-3">
+        <label for="avatarInput" class="form-label">Avatar</label>
+        <input type="file" class="form-control" id="avatarInput" class:is-invalid={error.avatar} bind:files={avatar} accept="image/jpg, image/jpeg, image/png">
+        {#if error.avatar}
+        <div class="invalid-feedback">
+          {error.avatar.message}
+        </div>
+        {/if}
+      </div>
+
+      <div class="mb-3">
+        <label for="kindInput" class="form-label">Account Kind</label>
+        <select class="form-select" id="kindInput" bind:value={kind}>
+          <option value="user">User</option>
+          <option value="charity">Charity</option>
+          <option value="company">Company</option>
+        </select>
+      </div>
+
+      {#if kind == "charity"}
+      <div class="mb-3">
+        <label for="donateInput" class="form-label">Donation Link</label>
+        <input type="url" class="form-control" id="donateInput" class:is-invalid={error.donate} placeholder="Donation website URL" bind:value={donate}>
+        {#if error.donate}
+        <div class="invalid-feedback">
+          {error.donate.message}
+        </div>
+        {/if}
+      </div>
+
+      <div class="mb-3">
+        <label for="topicInput" class="form-label">Topic</label>
+        <input type="text" class="form-control" id="topicInput" class:is-invalid={error.topic} placeholder="e.g. Crayons" bind:value={topic}>
+        {#if error.topic}
+        <div class="invalid-feedback">
+          {error.topic.message}
+        </div>
+        {/if}
       </div>
       {/if}
-    </div>
-    <div class="mb-3">
-      <label for="passwordInput" class="form-label">Password</label>
-      <input type="password" class:is-invalid={error.password} class="form-control" id="passwordInput" placeholder="Password" bind:value={password}>
-      {#if error.password}
-      <div class="invalid-feedback">
-        {error.password.message}
-      </div>
       {/if}
-    </div>
 
-    {#if snup}
-    <div class="mb-3">
-      <label for="nameInput" class="form-label">Username</label>
-      <input type="text" class="form-control" class:is-invalid={error.username} id="nameInput" placeholder="CoolUser123" bind:value={username}>
-      {#if error.username}
-      <div class="invalid-feedback">
-        {error.username.message}
+      <div class="w-100 vstack gap-2">
+        <button class="btn btn-primary" type="submit" on:click|preventDefault={login} disabled={loading}>{snup ? "Sign Up" : "Log In"}</button>
       </div>
-      {/if}
+    </form>
     </div>
-
-    <div class="mb-3">
-      <label for="avatarInput" class="form-label">Avatar</label>
-      <input type="file" class="form-control" id="avatarInput" class:is-invalid={error.avatar} bind:files={avatar} accept="image/jpg, image/jpeg, image/png">
-      {#if error.avatar}
-      <div class="invalid-feedback">
-        {error.avatar.message}
-      </div>
-      {/if}
-    </div>
-
-    <div class="mb-3">
-      <label for="kindInput" class="form-label">Account Kind</label>
-      <select class="form-select" id="kindInput" bind:value={kind}>
-        <option value="user">User</option>
-        <option value="charity">Charity</option>
-        <option value="company">Company</option>
-      </select>
-    </div>
-
-    {#if kind == "charity"}
-    <div class="mb-3">
-      <label for="donateInput" class="form-label">Donation Link</label>
-      <input type="url" class="form-control" id="donateInput" class:is-invalid={error.donate} placeholder="Donation website URL" bind:value={donate}>
-      {#if error.donate}
-      <div class="invalid-feedback">
-        {error.donate.message}
-      </div>
-      {/if}
-    </div>
-
-    <div class="mb-3">
-      <label for="topicInput" class="form-label">Topic</label>
-      <input type="text" class="form-control" id="topicInput" class:is-invalid={error.topic} placeholder="e.g. Crayons" bind:value={topic}>
-      {#if error.topic}
-      <div class="invalid-feedback">
-        {error.topic.message}
-      </div>
-      {/if}
-    </div>
-    {/if}
-    {/if}
-
-    <div class="w-100 vstack gap-2">
-      <button class="btn btn-primary" type="submit" on:click|preventDefault={login} disabled={loading}>{snup ? "Sign Up" : "Log In"}</button>
-    </div>
-  </form>
+  </div>
 </div>
 
 <style>
