@@ -49,6 +49,7 @@
         <li class="nav-item">
           <a class="nav-link" class:active={$page.url.pathname == "/help"} href="/help">Help</a>
         </li>
+        <ThemePicker />
       </ul>
 
       <ul class="navbar-nav">
@@ -68,7 +69,6 @@
         {:else}
         <button class="btn nav-link" on:click={() => login = true}>Login</button>
         {/if}
-        <ThemePicker />
         <li class="nav-item">
           <a class="nav-link newpostlink" class:active={$page.url.pathname == "/new"} href="/new">
             <i class="bi bi-plus-square newpostbtn d-none d-lg-block d-xl-none"></i>

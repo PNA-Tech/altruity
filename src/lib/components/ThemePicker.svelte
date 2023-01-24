@@ -49,7 +49,7 @@
     <i class={"bi bi-" + themeIcons[theme]}></i>
     <span class="d-lg-none">Theme</span>
   </span>
-  <ul class="dropdown-menu dropdown-menu-end">
+  <ul class="dropdown-menu">
     {#each themes as t}
       <button class="dropdown-item cursor" on:click={() => {switchTheme(t)}}>
         <i class={"bi bi-" + themeIcons[t]}></i> <span class="capitalize">{t}</span>
