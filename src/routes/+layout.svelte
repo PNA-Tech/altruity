@@ -71,7 +71,7 @@
         {/if}
         <li class="nav-item">
           <a class="nav-link newpostlink" class:active={$page.url.pathname == "/new"} href="/new">
-            <i class="bi bi-plus-square newpostbtn d-none d-lg-block d-xl-none"></i>
+            <i class="bi bi-plus-square newpostbtn d-none d-lg-block d-xl-block d-xxl-block"></i>
             <div class="d-lg-none">
               <i class="bi bi-plus-square"></i>
               New Post
