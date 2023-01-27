@@ -25,7 +25,7 @@
       data.append("username", username);
       data.append("kind", kind);
       data.append("avatar", avatar ? avatar[0] : "");
-      if (kind == "charity") {
+      if (kind == "nonprofit") {
         data.append("donate", donate);
         data.append("topic", topic);
       }
@@ -124,12 +124,12 @@
         <label for="kindInput" class="form-label">Account Kind</label>
         <select class="form-select" id="kindInput" bind:value={kind}>
           <option value="user">User</option>
-          <option value="charity">Charity</option>
+          <option value="nonprofit">nonprofit</option>
           <option value="company">Company</option>
         </select>
       </div>
 
-      {#if kind == "charity"}
+      {#if kind == "nonprofit"}
       <div class="mb-3">
         <label for="donateInput" class="form-label">Donation Link</label>
         <input type="url" class="form-control" id="donateInput" class:is-invalid={error.donate} placeholder="Donation website URL" bind:value={donate}>

@@ -13,7 +13,7 @@
     with potential donors and volunteers. With a user-friendly interface and
     powerful tools, Altruity makes it easy for charities to share their
     missions, fundraise, and connect with their communities. Whether you're a
-    charity looking to spread the word about your cause or a philanthropist
+    nonprofit looking to spread the word about your cause or a philanthropist
     searching for ways to make a difference, Altruity has something for you.
     With features like customizable profiles, event listings, and easy-to-use
     donation buttons, Altruity streamlines the process of connecting charities

@@ -132,7 +132,7 @@
 </p>
 {/if}
 
-{#if user.kind == "charity"}
+{#if user.kind == "nonprofit"}
 <div class="row mb-3">
   <a class="col btn btn-primary ms-2 btn-lg" target="_blank" rel="noreferrer" href={user.donate}>
     <div class="h-100 lgbtn">

@@ -19,7 +19,7 @@
     if (about != "") {
       data.append("about", about);
     }
-    if ($user!.kind == "charity") {
+    if ($user!.kind == "nonprofit") {
       data.append("donate", donationUrl);
       data.append("topic", topic);
     }
@@ -73,7 +73,7 @@
     </div>
     {/if}
   </div>
-  {#if $user?.kind == "charity"}
+  {#if $user?.kind == "nonprofit"}
   <div class="mb-3 text-start">
     <label for="donation" class="form-label">Donation Link</label>
     <input type="url" class="form-control" class:is-invalid={error.donate} id="donation" bind:value={donationUrl} placeholder="Donation website URL" />
