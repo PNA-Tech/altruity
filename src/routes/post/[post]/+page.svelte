@@ -107,9 +107,11 @@
       <span class="text-muted row">Posted {formatTime(post.created)}</span>
     </div>
     {#if $user && author.id == $user.id}
-    <div class="col">
-      <button class="btn btn-primary">Edit</button>
-    </div>
+    <a class="col-4 btn btn-outline-primary btn-lg me-2" href={"/edit/post/" + post.id}>
+      <div class="h-100 lgbtn">
+        <span class="d-flex"><i class="bi bi-pencil-square me-2"></i>Edit</span>
+      </div>
+    </a>
     {/if}
   </div>
   <h1 class="display-1">{post.title}</h1>
@@ -172,5 +174,11 @@
 
   .usertext {
     text-decoration: none;
+  }
+
+  .lgbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 </style>
