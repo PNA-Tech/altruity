@@ -1,6 +1,7 @@
 <script lang="ts">
   import { pb, user } from "$lib/pb";
-    import type { ClientResponseError } from "pocketbase";
+  import type { ClientResponseError } from "pocketbase";
+  import type { Error } from "$lib/pb";
 
   let username = $user!.username;
   let avatar: FileList;
