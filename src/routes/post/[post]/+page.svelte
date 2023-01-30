@@ -1,8 +1,8 @@
 <script lang="ts">
   import { page } from "$app/stores";
-    import Loading from "$lib/components/Loading.svelte";
+  import Loading from "$lib/components/Loading.svelte";
   import { pb, user, asRecord, publishFeed } from "$lib/pb";
-    import { formatTime } from "$lib/util";
+  import { formatTime } from "$lib/util";
   import type { Record } from "pocketbase";
   import { onMount, onDestroy } from "svelte";
 
@@ -106,6 +106,13 @@
       <a href={"/user/" + author.id} class="row h2 usertext">{author.username}</a>
       <span class="text-muted row">Posted {formatTime(post.created)}</span>
     </div>
+    {#if $user && author.id == $user.id}
+    <a class="col-4 btn btn-outline-primary btn-lg me-2" href={"/edit/post/" + post.id}>
+      <div class="h-100 lgbtn">
+        <span class="d-flex"><i class="bi bi-pencil-square me-2"></i>Edit</span>
+      </div>
+    </a>
+    {/if}
   </div>
   <h1 class="display-1">{post.title}</h1>
   <p class="lead">{post.description}</p>
@@ -167,5 +174,11 @@
 
   .usertext {
     text-decoration: none;
+  }
+
+  .lgbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 </style>
