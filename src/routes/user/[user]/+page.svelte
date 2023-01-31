@@ -7,9 +7,14 @@
   import type { Record } from "pocketbase";
   import { onMount } from "svelte";
   import { onDestroy } from "svelte";
+  import type { PageData } from "./$types";
 
 
-  let user: Record;
+  export let data: PageData;
+
+  let user = data.user;
+  $: user = data.user;
+
   let loaded = false;
 
   let posts: Record[] = [];
@@ -23,8 +28,6 @@
   async function load() {
     unload();
     loaded = false;
-
-    user = await pb.collection("users").getOne($page.params.user);
 
     // Get posts
     posts = (await pb.collection("posts").getList(1, 50, { filter: `author="${user.id}"`, sort: "-created", expand: "author" })).items;
@@ -94,12 +97,9 @@
 </script>
 
 <svelte:head>
-  {#if loaded}
   <title>{user.username} | Altruity</title>
-  {/if}
 </svelte:head>
 
-{#if loaded}
 <div class="row mb-3 align-items-center">
   <img src={pb.getFileUrl(user, user.avatar, { thumb: "128x128" })} alt={user.username} class="rounded-circle avatar col-3 img-fluid avatar"/>
   <div class="col">
@@ -115,7 +115,7 @@
     <div class="col-6 text-muted">{followerUsers.length}</div>
     <div class="col-6 text-muted">{followingUsers.length}</div>
   </div>
-  {#if !$loggedUser || $loggedUser.id != user.id}
+  {#if $loggedUser && $loggedUser.id != user.id}
   <button class="col-3 btn btn-primary me-2" disabled={followLoading} on:click={follow}>{followerUsers.includes(asRecord($loggedUser).id) ? "Unfollow" : "Follow"}</button>
   {:else if $loggedUser && $loggedUser.id == user.id}
   <a class="col-3 btn btn-outline-primary me-2" href="/settings">
@@ -150,8 +150,9 @@
 {#each posts as post}
   <PostPreview post={post}></PostPreview>
 {/each}
-{:else}
-<Loading/>
+
+{#if !loaded}
+<Loading></Loading>
 {/if}
 
 <style>
