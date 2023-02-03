@@ -22,6 +22,7 @@
       {
         "button-name": "off"
       }
-    ]
+    ],
+    "apple-touch-icons": "off"
   }
 }
