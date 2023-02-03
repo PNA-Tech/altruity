@@ -11,13 +11,6 @@
   const maxFiles = 5;
   let fileInput: HTMLInputElement;
 
-  async function onFileChange(e: any) {
-    if (e.target.files.length > maxFiles) {
-      alert(`You can only upload ${maxFiles} files at a time.`);
-      fileInput.value = '';
-    }
-  }
-
   let loading = false;
   let error: Record<string, Error> = {};
 
@@ -82,7 +75,7 @@
   </div>
   <div class="mb-3 text-start">
     <label for="pictures" class="form-label">Upload Pictures</label>
-    <input class="form-control" type="file" id="pictures" bind:files={pics} accept="image/jpg, image/jpeg, image/png" multiple on:change={onFileChange} bind:this={fileInput} class:is-invalid={error.pictures}/>
+    <input class="form-control" type="file" id="pictures" bind:files={pics} accept="image/jpg, image/jpeg, image/png" multiple class:is-invalid={error.pictures}/>
     {#if error.pictures}
       <div class="invalid-feedback">
         {error.pictures.message}

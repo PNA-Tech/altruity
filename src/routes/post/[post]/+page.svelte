@@ -1,10 +1,13 @@
 <script lang="ts">
   import { page } from "$app/stores";
-    import Loading from "$lib/components/Loading.svelte";
+  import Loading from "$lib/components/Loading.svelte";
   import { pb, user, asRecord, publishFeed } from "$lib/pb";
-    import { formatTime } from "$lib/util";
+  import { formatTime } from "$lib/util";
   import type { Record } from "pocketbase";
   import { onMount, onDestroy } from "svelte";
+  import type { PageData } from './$types';
+
+  export let data: PageData;
 
   let loaded = false;
 
@@ -23,16 +26,17 @@
     commenting = false;
   }
 
-  let post: Record;
-  let author: Record;
+  let post = data.post;
+  $: post = data.post;
+  let author = post.expand.author as Record;
+  $: author = post.expand.author as Record;
+
   let unsubscribeLikes: () => void;
   let unsubscribeComments: () => void;
   async function load() {
     unload();
     loaded = false;
 
-    post = await pb.collection("posts").getOne($page.params.post, { expand: "author" });
-    author = post.expand.author as Record;
     likes = await pb.collection("likes").getFullList(200, { filter: `post="${post.id}"` });
     comments = await pb.collection("comments").getFullList(200, { filter: `post="${post.id}"`, expand: "author" });
 
@@ -93,12 +97,9 @@
 </script>
 
 <svelte:head>
-  {#if loaded}
   <title>{post.title} | Altruity</title>
-  {/if}
 </svelte:head>
 
-{#if loaded}
 <div class="text-start">
   <div class="row mb-3 align-items-center">
     <img src={pb.getFileUrl(author, author.avatar, { thumb: "128x128" })} alt={author.username} class="rounded-circle avatar col-2 img-fluid"/>
@@ -106,6 +107,13 @@
       <a href={"/user/" + author.id} class="row h2 usertext">{author.username}</a>
       <span class="text-muted row">Posted {formatTime(post.created)}</span>
     </div>
+    {#if $user && author.id == $user.id}
+    <a class="col-4 btn btn-outline-primary btn-lg me-2" href={"/edit/post/" + post.id}>
+      <div class="h-100 lgbtn">
+        <span class="d-flex"><i class="bi bi-pencil-square me-2"></i>Edit</span>
+      </div>
+    </a>
+    {/if}
   </div>
   <h1 class="display-1">{post.title}</h1>
   <p class="lead">{post.description}</p>
@@ -143,8 +151,9 @@
     {/each}
   </div>
 </div>
-{:else}
-<Loading/>
+
+{#if !loaded}
+<Loading></Loading>
 {/if}
 
 <style>
@@ -167,5 +176,11 @@
 
   .usertext {
     text-decoration: none;
+  }
+
+  .lgbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 </style>

@@ -1,0 +1,48 @@
+
+{
+  "short_name": "Altruity",
+  "name": "Altruity",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "type": "image/png",
+      "sizes": "651x610"
+    }
+  ],
+  "display": "standalone",
+  "scope": "/",
+  "shortcuts": [
+    {
+      "name": "View your feed",
+      "short_name": "Feed",
+      "description": "See what's happening in your feed",
+      "url": "/"
+    },
+    {
+      "name": "Explore the community",
+      "short_name": "Explore",
+      "description": "Find posts and users to follow",
+      "url": "/explore"
+    },
+    {
+      "name": "Make a new post",
+      "short_name": "New Post",
+      "description": "Create a post",
+      "url": "/new"
+    },
+    {
+      "name": "Edit your profile",
+      "short_name": "Settings",
+      "description": "Change the look of your profile",
+      "url": "/settings"
+    },
+    {
+      "name": "About us",
+      "short_name": "About",
+      "description": "Learn about Altruity",
+      "url": "/about"
+    }
+  ],
+  "description": "Altruity is a revolutionary social media platform connecting philanthropists and charities, making it easy to discover and support causes that matter to you."
+}

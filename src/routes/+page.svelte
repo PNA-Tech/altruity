@@ -1,9 +1,8 @@
 <script lang="ts">
   import Loading from "$lib/components/Loading.svelte";
   import PostPreview from "$lib/components/PostPreview.svelte";
-    import UserPreview from "$lib/components/UserPreview.svelte";
+  import UserPreview from "$lib/components/UserPreview.svelte";
   import { asRecord, pb, user } from "$lib/pb";
-    import { formatTime } from "$lib/util";
   import type { Record } from "pocketbase";
   import { onMount } from "svelte";
   import { onDestroy } from "svelte";
@@ -13,7 +12,6 @@
   let unsubscribe: () => void;
 
   onMount(async () => {
-    loaded = true;
     feed = (await pb.collection("feed").getList(1, 50, { 
       filter: `target="${$user!.id}"`, 
       expand: "author,user,post,post.author",
@@ -43,6 +41,7 @@
         feed = feed.filter((l) => l.id != rec.record.id);
       }
     })
+    loaded = true;
   })
 
   onDestroy(() => {
