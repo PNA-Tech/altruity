@@ -134,15 +134,12 @@
 
 {#if user.kind == "nonprofit"}
 <div class="row mb-3">
-  <a class="col btn btn-primary ms-2 btn-lg" target="_blank" rel="noreferrer" href={user.donate}>
+  <a class="col btn btn-primary ms-2 " target="_blank" rel="noreferrer" href={user.donate} style="max-width: 40%;"><br>
     <div class="h-100 lgbtn">
       <span class="d-flex">Donate</span>
     </div>
   </a>
-  <div class="row col">
-    <div class="col-12">Topic</div>
-    <div class="col-12 text-muted">{user.topic}</div>
-  </div>
+  <div class="row col-12" style="width: 30%;">Topic: <span class="text-muted">{user.topic}</span></div>
 </div>
 {/if}
 
