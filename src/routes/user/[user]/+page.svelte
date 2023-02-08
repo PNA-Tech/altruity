@@ -181,23 +181,21 @@
 
 {#if user.kind == "nonprofit"}
   <div class="row mb-3 align-items-center">
-    <div class="d-flex align-items-center col">
-      <a
-        class="btn btn-primary me-2 btn-lg col"
-        target="_blank"
-        rel="noreferrer"
-        href={user.donate}
-      >
-        <i class="bi bi-bag-heart" />
-        Donate
-      </a>
+    <a
+      class="btn btn-primary me-2 btn-lg col donatebtn"
+      target="_blank"
+      rel="noreferrer"
+      href={user.donate}
+    >
+      <i class="bi bi-bag-heart" />
+      Donate
+    </a>
 
-      <div class="col">
-        <h5 class="topic">
-          <i class="bi bi-tags" />
-          {user.topic}
-        </h5>
-      </div>
+    <div class="col">
+      <h5 class="topic">
+        <i class="bi bi-tags" />
+        {user.topic}
+      </h5>
     </div>
   </div>
 {/if}
@@ -226,6 +224,10 @@
     font-size: medium;
     font-size: large;
     padding-left: 0.3%;
+  }
+
+  .donatebtn {
+    max-width: 400px;
   }
 
   i {
