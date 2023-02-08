@@ -27,7 +27,7 @@
       </h2>
       <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          Our content moderation team may have removed your post or changed your username if it was offensive or inappropriate.
+          Our content moderation team may have removed your post or changed your username if it was deemed offensive or inappropriate.
         </div>
       </div>
     </div>
@@ -40,6 +40,18 @@
       <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
         <div class="accordion-body">
             Currently, please contact us <a href="mailto:contact@altruity.social" style="text-decoration: solid;">here</a> with serious requests, unappropiate requests are subject to actions such as suspension or removal.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFour">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+          How do I change my account type?
+        </button>
+      </h2>
+      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            There is no manual way to change your account type, to do so please contact us <a href="mailto:contact@altruity.social" style="text-decoration: solid;">here</a> with your desired account type and why.
         </div>
       </div>
     </div>
