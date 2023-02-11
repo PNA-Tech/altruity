@@ -143,7 +143,12 @@
     class="rounded-circle avatar col-3 img-fluid avatar"
   />
   <div class="col">
-    <h1 class="row">{user.username}</h1>
+    <h1 class="row">
+      {#if $loggedUser && $loggedUser.id == user.id}
+        You
+      {:else if $loggedUser && $loggedUser.following.includes(user.id)}
+        {user.username}
+      {/if}</h1>
     <span class="text-muted row">Joined {formatTime(user.created)}</span>
   </div>
 </div>
